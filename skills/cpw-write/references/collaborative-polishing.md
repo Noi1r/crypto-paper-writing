@@ -154,6 +154,11 @@ when requested or when it helps resolve a specific ambiguity.
 
 ## Output and checks
 
+For several proposed revisions that the author may review later, offer the
+[paragraph comparison booklet](review-comparison.md): numbered original/proposed
+passages with reasons and explicit decisions. Use it after the requested review
+or when asked; ordinary live paragraph-by-paragraph discussion can stay in chat.
+
 Return the complete revised passage and a brief rationale for substantive edits.
 Reread it once for field-appropriate wording and once for missing explanatory
 links: can the intended reader identify the object, action, conditions and main

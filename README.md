@@ -93,6 +93,12 @@ $cpw-write 请润色 paper/sections/intro.tex。
 `cpw-write` 的章节指南保存在 `skills/cpw-write/references/`，作为内部文档按需读取。
 你只需说明要写什么，助手会选择当前需要的指南；无需分别调用摘要、润色或评估技能。
 
+审阅后有多处修改适合集中讨论时，`cpw-review` 或 `cpw-write` 会询问是否需要
+[逐段对照册](skills/cpw-write/references/review-comparison.md)：按 C1、C2 等编号，
+列出灰色原文、红色候选改写、位置和理由，便于之后逐项讨论、接受或拒绝。
+已经明确要求对照册时直接制作；对照册使用独立副本，采纳哪些修改由作者决定。
+它是可选协作方式，页数和建议数量由内容决定。
+
 如果刚安装的技能尚未出现，重开 Codex 会话后检查；也可直接要求读取
 `.paper-writing/skills/cpw-write/SKILL.md`。在非 Git 项目中，建议从论文项目根目录开始会话。
 

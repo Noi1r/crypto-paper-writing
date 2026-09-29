@@ -37,6 +37,7 @@ decision. Do not load every chapter for a local revision.
 | Requested work | Internal guide |
 |---|---|
 | Paragraph or section polishing, translation, iterative revision | [Collaborative polishing](references/collaborative-polishing.md) |
+| A batch of proposed revisions for later discussion | [Paragraph comparison booklets](references/review-comparison.md) |
 | New paper or substantial reorganization | [Writing from relevant papers](references/writing-from-related-work.md), then [overall structure](references/sections/00_overall_structure.md) |
 | Title | [Title](references/sections/01_title.md) |
 | Abstract | [Abstract](references/sections/02_abstract.md) |
@@ -80,6 +81,11 @@ about structure, detail and attribution; their facts and wording are not templat
   explicitly rather than filling the gap with a plausible value.
 
 ## Deliver and check
+
+After a review or a batch of revision suggestions, offer a
+[comparison booklet](references/review-comparison.md) when it would help the author
+assess several passages later. Ask once unless already requested; finish the
+requested review without making this optional artifact a prerequisite.
 
 Return a complete revised unit and a brief explanation of substantive changes,
 unless the author asks for line edits or discussion only. Preserve citation keys,
