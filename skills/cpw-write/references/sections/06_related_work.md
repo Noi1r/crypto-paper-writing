@@ -1,13 +1,8 @@
----
-name: related-work-writing
-description: Explain a cryptography paper's relation to the most relevant prior work, using verified sources and explicit comparison conditions. Choose organization and placement to suit the paper.
----
-
 # Related-work writing
 
-Read the paper's actual contribution, `LITERATURE.md`, the verified bibliography
-(default `paper/refs.bib`) and the primary sources relevant to the comparison.
-Use the source paths recorded in `STATE.md` for an existing manuscript.
+Read the paper's actual contribution, relevant literature notes, bibliography
+and primary sources for the comparison. Use `STATE.md` and `LITERATURE.md` when
+present, following the manuscript's actual paths.
 
 ## Choose the organization
 
@@ -30,6 +25,14 @@ the paper's specific advance.
   retain section or page pointers in the literature notes.
 - State factual differences. A different objective or security model is not
   itself a shortcoming. Do not infer an advantage from incomparable measurements.
+- Distinguish what a prior construction supports from what a particular analysis
+  models or a reported comparison measures. Limit a criticism to the passage,
+  model and setting actually checked. An omitted term in one estimate does not
+  show that the entire construction lacks that feature.
+- Cite the source that establishes the fact. Use a standard for its normative
+  definitions or parameter sets and the original work for its analysis,
+  implementation or measured results. A paper that reuses standard parameters
+  remains the source for any results obtained with them.
 - If a table is useful, define its metrics, symbols and qualifications. Include
   the present work where a matched comparison is possible.
 - Check the relevant literature for close or concurrent work when the request
@@ -39,4 +42,5 @@ the paper's specific advance.
 
 Deliver the requested section and any necessary citation corrections. Paragraph
 counts, comparison axes and headings follow the selected organization.
-See [the section guide](../paper-playbook/sections/06_related_work.md).
+For examples, see
+[synthetic related-work passages](../../examples/toy_overview_and_related.md).

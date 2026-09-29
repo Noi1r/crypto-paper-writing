@@ -1,8 +1,3 @@
----
-name: technique-overview
-description: Explain a cryptography paper's actual technical obstacles and the observations or mechanisms that address them, with enough detail to connect intuition to the main results.
----
-
 # Technical overview
 
 The reader should be able to explain the main idea, why the difficulty arises,
@@ -22,6 +17,9 @@ change improves understanding.
   the relevant prior approach only as far as needed to understand that difficulty.
 - State the observation, mechanism or proof idea that changes what can be done.
   Connect it to the result and explain the assumptions it needs.
+- Introduce a helper quantity or optimization when the reader can see the
+  question it answers. Explain the main mathematical task before the machinery
+  that accelerates its evaluation.
 - Order the explanation by its conceptual dependencies. Use questions, insight
   headings, a worked example, formulas or a diagram when they clarify a step.
   Their number and form follow the content.
@@ -38,6 +36,7 @@ with the body without repeating the entire related-work discussion or proof?
 An intuitive explanation should not upgrade a conjecture, heuristic or partial
 result to a theorem.
 
-Deliver a complete overview in its existing source location. Request a figure
-only if there is a concrete relation or process that it would help explain.
-See [the section guide](../paper-playbook/sections/05_technique_overview.md).
+Deliver a complete overview following the source-edit authorization in the
+writing entrypoint. Use a figure when there is a concrete relation or process
+that it would help explain. Examples are in
+[synthetic overviews](../../examples/toy_overview_and_related.md).

@@ -52,13 +52,13 @@ content. Attribute any technical material used from them through normal citation
 For recurring terminology choices, note the relevant meaning and source usage
 in the existing plan or terminology notes. Learn the field's vocabulary without
 copying sentence sequences or unnecessary complexity. Apply
-[field language and clarity](../../polish-writing/references/field-language-and-clarity.md)
+[field language and clarity](field-language-and-clarity.md)
 when turning these observations into prose; even a technically close reference
 may contain awkward phrasing that is not useful to imitate.
 
 ## Form a paper-specific writing plan
 
-Use [the overall outline](../sections/00_overall_structure.md) as a starting
+Use [the overall outline](sections/00_overall_structure.md) as a starting
 point. Propose the sections, each section's purpose and supporting material,
 and the order that makes the argument understandable. Note the useful
 presentation choices and any reasons to depart from the reference papers.

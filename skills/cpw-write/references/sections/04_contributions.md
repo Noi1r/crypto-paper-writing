@@ -14,6 +14,17 @@ For each contribution, explain what is established, what is new relative to the
 relevant work, and any condition needed to interpret it. A precise limitation is
 part of a truthful statement and may belong in the contribution itself.
 
+Make an analytical or construction contribution understandable through the
+technical obstacle it addresses. Explain which information a method tracks,
+which dependency it handles or which constraint it exploits, as supported by
+the work. Phrases such as "tighter analysis" or "more efficient encoding" need
+the reason that distinguishes the contribution.
+
+When methods are complementary, explain their different roles: for example,
+one may give a cheap bound by relaxing a dependency while another counts that
+dependency at higher cost. State the actual scope; a stronger bound, a better
+selected parameter point and a construction advantage are different claims.
+
 Use theorems, algorithms, tables or section references when they help readers
 locate the formal statement or evidence. State the substantive result in words
 so that a reference number does not have to carry the explanation.

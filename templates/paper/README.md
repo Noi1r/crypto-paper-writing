@@ -1,6 +1,6 @@
 # Paper template (Springer LNCS)
 
-Skeleton whose sections match `.paper-writing/skills/paper-playbook/sections/`
+Skeleton whose sections match `.paper-writing/skills/cpw-write/references/sections/`
 (from the project root). Placeholders use
 `<<...>>`; grep for `<<` before submission.
 

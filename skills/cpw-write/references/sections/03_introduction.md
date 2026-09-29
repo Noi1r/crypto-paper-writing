@@ -13,6 +13,15 @@ Introduce the paper's contribution and the idea behind it. Explain why the resul
 matters and under which conditions it holds. Contributions may be listed or
 integrated into the narrative; see [the contribution guide](04_contributions.md).
 
+Distinguish the surrounding system background from the component or question
+being studied when combining them would obscure the motivation. Anchor design
+choices in concrete operations or named prior approaches. Preserve an author's
+useful conceptual grouping and make each part specific.
+
+Let background prepare the contribution without announcing the same goal in
+several adjacent paragraphs. Keep a goal statement, contribution opening or
+roadmap only when it adds useful orientation; no heading is required or forbidden.
+
 A pipeline, objective equation, example or motivating question is useful when it
 makes this problem clearer. Include it for that purpose, using the actual
 mathematical or computational setting. A contribution need not be an optimization

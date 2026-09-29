@@ -2,7 +2,7 @@
 
 For a new paper or a requested reorganization, first establish its actual results
 and study suitable reference papers using
-[writing from relevant papers](../references/writing-from-related-work.md).
+[writing from relevant papers](../writing-from-related-work.md).
 Then propose an outline before drafting whole sections. State each section's
 purpose, available source material and conceptual dependencies, explaining the
 reference choices that informed the plan. For a local edit, use the existing plan.
@@ -17,7 +17,7 @@ reference choices that informed the plan. For a local edit, use the existing pla
 | Preliminaries | Learn the notation, models and tools used later | A substantial problem statement or security model can have its own section |
 | Main technical content | Follow the protocol, construction, algorithm or theoretical development | Split and order sections by their actual dependencies |
 | Correctness, security and analysis | Assess the claimed properties and costs | Attach analysis to each construction or give it a separate section |
-| Evaluation | Assess empirical claims under stated conditions | Include when the paper has experimental results to report |
+| Evaluation | Assess concrete results under stated conditions | Include analytical parameter comparisons, measurements or both when relevant |
 | Related work | Understand the detailed relation to relevant results | Place early when it motivates the contribution, or later when comparison needs technical context |
 | Conclusion | Synthesize the significance, limits or remaining questions | Optional when no useful synthesis is needed and venue rules permit omission |
 | References and appendix | Find sources and detailed supporting material | Follow the applicable venue rules |
@@ -45,7 +45,7 @@ statement is explicit.
 Language and presentation choices follow the author's instructions, the current
 manuscript and the writing plan developed from relevant papers. An existing
 personal profile can supplement these choices when applicable; see
-[polish-writing](../../polish-writing/SKILL.md).
+[collaborative polishing](../collaborative-polishing.md).
 
 ## Check the outline
 

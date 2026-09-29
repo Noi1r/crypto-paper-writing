@@ -8,9 +8,12 @@ register_skills() {
   local source_dir="$1" registration_dir="$2" link_prefix="$3"
   local source name link expected
   mkdir -p "$registration_dir"
-  for source in "$source_dir"/*; do
+  # Use this version's inventory: old project snapshots can still contain
+  # customized skill directories that are now internal writing guides.
+  for source in "$ROOT/skills"/*; do
     [ -f "$source/SKILL.md" ] || continue
     name="$(basename "$source")"
+    [ -f "$source_dir/$name/SKILL.md" ] || continue
     link="$registration_dir/$name"
     expected="$link_prefix/$name"
     if [ ! -e "$link" ] && [ ! -L "$link" ]; then
@@ -21,9 +24,23 @@ register_skills() {
   done
 }
 
+retire_writing_links() {
+  local registration_dir="$1" link_prefix="$2" name link
+  for name in paper-playbook polish-writing abstract-craft technique-overview related-work-writing experiments-writing; do
+    link="$registration_dir/$name"
+    # Only unlink registrations made by this installer. Keep custom folders,
+    # links to other toolkits, and the old installed content itself.
+    if [ -L "$link" ] && [ "$(readlink "$link")" = "$link_prefix/$name" ]; then
+      rm "$link"
+      echo "Writing guide now available through cpw-write: $name"
+    fi
+  done
+}
+
 if [ "${1:-}" = "--user" ] && [ "$#" -le 2 ]; then
   SKILL_DEST="${2:-$HOME/.agents/skills}"
   register_skills "$ROOT/skills" "$SKILL_DEST" "$ROOT/skills"
+  retire_writing_links "$SKILL_DEST" "$ROOT/skills"
   echo "Codex user skills registered in $SKILL_DEST"
   echo "Skill links use this checkout: $ROOT"
   echo 'Start a new Codex turn and use $cpw-init to prepare a paper project.'
@@ -86,6 +103,7 @@ for name in README.md SPEC.md SOURCE.md LICENSE .gitignore; do
 done
 
 register_skills "$TARGET/.paper-writing/skills" "$TARGET/.agents/skills" "../../.paper-writing/skills"
+retire_writing_links "$TARGET/.agents/skills" "../../.paper-writing/skills"
 
 # Retire only links created by the previous installer. Preserve custom entries
 # and do not traverse a user-supplied symlink to another configuration directory.

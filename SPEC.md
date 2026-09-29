@@ -13,7 +13,25 @@ project holds all paper-specific content.
   commit copied PDFs, harvested figures, unpublished manuscripts, reviews, real
   result logs, private personal data, email addresses, or machine identifiers.
 
+## Writing entrypoint
+
+`cpw-write` is the single article-writing entrypoint. It routes planning,
+drafting, polishing, translation and section-specific work to internal references
+under `skills/cpw-write/references/`. Read only the guidance needed for the
+current task. Literature preparation, figures, review, rebuttal and submission
+remain separate workflows.
+
+The references consolidate the former paper-playbook, polish-writing,
+abstract-craft, technique-overview, related-work-writing and experiments-writing
+skills. Shared principles have one home; chapter guides add task-specific
+decisions. Examples are synthetic and illustrate choices rather than prescribe
+a sentence sequence, paragraph count or research contribution.
+
 ## Paper project files
+
+Use existing manuscript sources and support records. The files below organize a
+project that adopts this layout; they are not prerequisites for local writing.
+Do not initialize a project or create ledgers merely to revise a passage.
 
 `STATE.md` tracks the writing status, selected writing references, paper-specific
 plan and outstanding work. It can link existing planning notes. `CLAIMS.md` holds each
@@ -45,9 +63,11 @@ plain, concrete explanations. Readability improvements preserve technical names,
 assumptions and claim strength; neither a blanket word blacklist nor a fixed
 sentence length defines the writing style.
 
-No claim is strengthened by editorial polishing. No measured number is copied
-into `paper/` without an `EVIDENCE.md` row. BibTeX entries stay only after
-verification. The author approves submissions and releases.
+No claim is strengthened by editorial polishing. Numerical results need
+traceable support. Projects using `EVIDENCE.md` record reported values and link
+them to their sources; local edits in other manuscripts can use existing logs,
+tables, citations or notes. Use verified citations and flag missing support.
+The author approves submissions and releases.
 
 ## Tooling
 
@@ -60,12 +80,18 @@ The installer registers project-local Codex skills under `.agents/skills/`, usin
 links to `.paper-writing/skills/`. The `cpw-*` entry skills cover initialization,
 literature, writing, figures, review, rebuttal and submission preparation. Their
 frontmatter uses skill metadata; tool availability and model selection remain
-with the current Codex session. Supporting procedures can also be invoked as
-skills. User-owned skill entries and existing project files are preserved.
+with the current Codex session. Supporting tools can also be invoked as skills;
+the writing guides are internal to `cpw-write`. User-owned skill entries and
+existing project files are preserved.
 
 Reinstallation fills missing resources and removes only links recognized as
-having been created by the old installer. It does not overwrite local edits to
-the installed toolkit or remove unrelated configuration.
+having been created by the old installer, including the six former writing
+entries. Registration follows the current toolkit inventory even when old skill
+files remain in an installed snapshot. Old content, custom skill directories and
+links to other toolkits are preserved. Reinstallation does not overwrite local
+edits to installed guides or entrypoints; merge those edits when updating a
+project snapshot. User registration through checkout symlinks uses the current
+checkout directly.
 
 `scripts/audit_tex.py` imports the standalone `papercheck/evidence.py` ledger
 reader and scans literal LaTeX quantities linked by `\ev{ID}` or `% EV:ID`.

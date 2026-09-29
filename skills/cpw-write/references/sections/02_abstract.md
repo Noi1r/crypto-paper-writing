@@ -1,8 +1,3 @@
----
-name: abstract-craft
-description: Draft or revise a cryptography paper abstract that clearly states the problem, method and main results while preserving their scope and evidence status.
----
-
 # Abstract craft
 
 Read the current manuscript, supported contributions and relevant evidence.
@@ -29,7 +24,8 @@ can help with a new abstract; an existing clear abstract can be revised directly
 1. Match substantive claims to the body. Distinguish proofs, measured results,
    estimates and values reported by prior work.
 2. For a numerical comparison, preserve the metric, baseline, tested scope and
-   units. Link manuscript literals to evidence using `\ev{E1}` or `% EV:E1`.
+   units. Use the project's evidence links when present; otherwise keep a direct
+   source pointer with the supplied revision or existing notes.
 3. Check that the abstract and contributions agree in meaning; their order and
    level of detail may differ.
 4. Replace vague claims with the specific result only when that result is
@@ -37,7 +33,9 @@ can help with a new abstract; an existing clear abstract can be revised directly
 5. Check that specialized terms and citations are understandable in the abstract
    and comply with the target venue's requirements.
 
-Deliver the abstract in the manuscript's existing location. Produce a plain-text
-submission version when requested or when preparing the submission form.
-See [the section guide](../paper-playbook/sections/02_abstract.md) and the
-[synthetic examples](../paper-playbook/examples/toy_abstracts.md).
+Deliver a complete, self-contained abstract following the source-edit
+authorization in the writing entrypoint. If the author asks to follow a prior
+abstract, adapt its information order and level of detail while checking every
+technical statement against the current paper. Produce a plain-text submission
+version when requested or when preparing the submission form.
+See the [synthetic examples](../../examples/toy_abstracts.md).

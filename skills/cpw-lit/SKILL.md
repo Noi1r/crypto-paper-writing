@@ -22,5 +22,5 @@ When supporting a new paper's writing plan, identify relevant source sections
 for content coverage and clear exposition. Explain why each paper is useful for
 the current contribution type and readership; the closest technical work need
 not be the strongest writing example. Use
-`.paper-writing/skills/paper-playbook/references/writing-from-related-work.md`
+`.paper-writing/skills/cpw-write/references/writing-from-related-work.md`
 and link the resulting notes from `STATE.md` for later reuse.

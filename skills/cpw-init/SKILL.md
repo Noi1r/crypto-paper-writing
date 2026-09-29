@@ -28,7 +28,7 @@ manuscript/bibliography paths and build commands in `STATE.md`.
 
 For a new manuscript, include selecting and reading suitable papers before
 choosing its organization and exposition, following
-`.paper-writing/skills/paper-playbook/references/writing-from-related-work.md`.
+`.paper-writing/skills/cpw-write/references/writing-from-related-work.md`.
 Record a concise writing plan and the venue-rule verification task in `STATE.md`.
 Link existing reference analysis for reuse. Initialization alone does not require
 writing the manuscript or executing new experiments.

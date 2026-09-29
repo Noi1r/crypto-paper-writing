@@ -1,41 +1,94 @@
 ---
 name: cpw-write
-description: Draft or revise a cryptography manuscript section using the paper project's supported claims, writing references and evidence. Use for manuscript writing or polishing, not toolkit maintenance.
+description: Plan, draft, revise, polish, or translate cryptography and security manuscripts, from a paragraph to a whole-paper structure. Use as the single CPW writing entrypoint; read its internal guides for the requested task. Not for toolkit maintenance or independent research execution.
 ---
 
-# Draft or revise a manuscript
+# CPW manuscript writing
 
-Read `STATE.md`, the requested manuscript unit, and its relevant support in
-`CLAIMS.md`, `EVIDENCE.md`, `LITERATURE.md` and the verified bibliography (default
-`paper/refs.bib`). `THEORY.md` may point to proof sources; do not present an
-unchecked proof as established. Use the actual paths recorded in `STATE.md`.
-Follow `.paper-writing/skills/paper-playbook` and the relevant section guides.
-For a new paper or major reorganization, establish the paper's results, read
-suitable related papers, and propose its outline and presentation choices using
-`.paper-writing/skills/paper-playbook/references/writing-from-related-work.md`.
-Record or link the writing references and plan in `STATE.md`. Technical proximity
-and usefulness as a writing example are separate selection considerations.
+Use this entrypoint for article writing. Select the relevant internal guide below
+and work within the author's requested scope. These guides are resources for the
+current assistant; they do not require separate skill calls or agents.
 
-For later section edits, reuse that plan and preserve the author's instructions
-and clear existing conventions. Local polishing does not repeat the initial
-literature search. A personal `STYLE.md` is optional; create one only when the
-author requests that separate task.
+## Start from the requested work
 
-Keep the author's conceptual structure and terminology. Use language familiar
-to the relevant subfield and ordinary words for the surrounding explanation. Follow
-`.paper-writing/skills/polish-writing/SKILL.md` for field-appropriate terminology
-and readability during drafting, as well as during the final language pass.
-Avoid invented labels and stylistic synonyms for established technical objects.
-Make the relevant actors, actions, conditions and reasoning links explicit.
+Identify the requested unit, its purpose, intended reader and surrounding
+dependencies. Preserve a clear author structure and established terminology.
+Read enough context to understand what has been established and what comes next.
+Reuse decisions and source checks already made when their inputs have not changed.
 
-Draft from precise claims and source material; use the supported wording in
-`CLAIMS.md`. Put every reported measurement in `EVIDENCE.md` and link it to its
-original log. Use verified
-citations only. Distinguish measured results, derived values, estimates, and
-open gaps. Do not strengthen the conclusion to make the prose smoother.
+Use the manuscript, author-provided passages, bibliography and relevant support.
+If present, use `STATE.md` for actual paths and the writing plan, `CLAIMS.md`
+for supported wording, `EVIDENCE.md` for numerical sources, and `LITERATURE.md`
+for related work. A local edit can proceed from existing material without these
+records, a toolkit installation or a personal style profile. Do not initialize
+records or start a new literature search merely to polish a passage.
 
-After an edit, check the affected content and its dependencies. Build changed
-LaTeX and audit changed numerical claims when applicable; report the checks
-actually performed. Record substantive decisions in the project record when
-needed. A broader simulated review is a separate task when requested or needed
-for the writing stage.
+For a new paper or major reorganization, establish the actual results, study
+suitable writing references and propose an outline suited to the work. Keep
+decisions in existing project notes or `STATE.md` when used. Technical proximity
+and usefulness as a writing example are separate considerations.
+
+## Read only the guidance needed now
+
+Resolve links relative to this skill directory, following its symlink if needed.
+Select the guide for the requested unit; follow further links only for a concrete
+decision. Do not load every chapter for a local revision.
+
+| Requested work | Internal guide |
+|---|---|
+| Paragraph or section polishing, translation, iterative revision | [Collaborative polishing](references/collaborative-polishing.md) |
+| New paper or substantial reorganization | [Writing from relevant papers](references/writing-from-related-work.md), then [overall structure](references/sections/00_overall_structure.md) |
+| Title | [Title](references/sections/01_title.md) |
+| Abstract | [Abstract](references/sections/02_abstract.md) |
+| Introduction or contributions | [Introduction](references/sections/03_introduction.md) and, when needed, [contributions](references/sections/04_contributions.md) |
+| Technical overview | [Technical overview](references/sections/05_technique_overview.md) |
+| Related-work prose | [Related work](references/sections/06_related_work.md) |
+| Background and notation | [Preliminaries](references/sections/07_preliminaries.md) |
+| Construction, protocol or algorithm exposition | [Main technical content](references/sections/08_main_construction.md) |
+| Presentation of security, correctness or analysis | [Security and correctness](references/sections/09_security_correctness.md) |
+| Evaluation, including analytical cost comparisons | [Evaluation](references/sections/10_experiments.md) |
+| Conclusion or appendix | [Conclusion](references/sections/11_conclusion.md) or [appendix](references/sections/12_appendix.md) |
+| Deriving a personal style profile, explicitly requested | [Author style](references/author-style.md) |
+
+For doubtful terminology or difficult prose, use
+[field language and clarity](references/field-language-and-clarity.md).
+[Synthetic revision examples](examples/revision-decisions.md) illustrate decisions
+about structure, detail and attribution; their facts and wording are not templates.
+
+## Shared writing decisions
+
+- Give each passage a useful role. Resolve misplaced content, missing premises
+  and duplication before fine word choices. Closely connected steps may share a
+  paragraph; there is no fixed paragraph, contribution or sentence count.
+- Use the subfield's established technical names and familiar words for ordinary
+  explanation. Make the relevant objects, actions, conditions and reasoning
+  connections clear. Introduce a symbol or intermediate quantity when its role
+  is understandable, and preserve notation that already serves the paper well.
+- Preserve assumptions, quantifiers, adversarial powers, probability space,
+  security model and claim strength where relevant. Separate a technical
+  correction from a language improvement. Editorial fluency cannot supply a
+  missing proof, causal explanation or novelty result.
+- Keep source facts, proved statements, manuscript derivations, cost models,
+  local measurements, reported external results and estimates distinguishable.
+  Never invent a citation, number, proof status or successful check.
+- Use the primary source appropriate to the fact: a standard for its definition
+  or normative parameters, and the original analysis or experiment for its
+  results. Preserve the provenance of reused parameter choices and measurements.
+- Trace changed numerical claims to their supporting material. Update evidence
+  records and links when the project uses them; existing source notes or logs
+  suffice for a local edit without a ledger. State a material missing source
+  explicitly rather than filling the gap with a plausible value.
+
+## Deliver and check
+
+Return a complete revised unit and a brief explanation of substantive changes,
+unless the author asks for line edits or discussion only. Preserve citation keys,
+labels, LaTeX commands and the current revision-marking convention unless their
+change is authorized. Apply source edits when requested or already authorized;
+discussion of wording alone does not authorize file edits.
+
+When the author changes the intended framing, reconsider the complete unit from
+that objective. Check the affected meaning, notation, citations, numbers and
+dependencies. Build changed LaTeX or audit changed evidence when warranted and
+available; report only checks actually performed. Broader reviews, benchmarks
+and submission work follow their own requested scope.

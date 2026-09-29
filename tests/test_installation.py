@@ -7,6 +7,10 @@ from pathlib import Path
 from papercheck.evidence import append_row
 
 ROOT = Path(__file__).resolve().parents[1]
+WRITING_GUIDES = {
+    "paper-playbook", "polish-writing", "abstract-craft", "technique-overview",
+    "related-work-writing", "experiments-writing",
+}
 
 
 class InstallationTests(unittest.TestCase):
@@ -38,6 +42,12 @@ class InstallationTests(unittest.TestCase):
         expected = {p.parent.name for p in (ROOT / "skills").glob("*/SKILL.md")}
         links = list((self.project / ".agents/skills").iterdir())
         self.assertEqual({p.name for p in links}, expected)
+        self.assertFalse(expected & WRITING_GUIDES)
+        writing = self.project / ".agents/skills/cpw-write"
+        self.assertEqual(list(writing.rglob("SKILL.md")), [writing / "SKILL.md"])
+        for guide in ("collaborative-polishing.md", "sections/02_abstract.md",
+                      "sections/05_technique_overview.md", "sections/10_experiments.md"):
+            self.assertTrue((writing / "references" / guide).is_file(), guide)
         for link in links:
             self.assertTrue(link.is_symlink(), str(link))
             self.assertTrue((link / "SKILL.md").is_file(), str(link))
@@ -142,8 +152,44 @@ class InstallationTests(unittest.TestCase):
         self.assertEqual(settings.read_text(), '{"toy": true}\n')
         self.assertTrue(foreign.is_symlink())
         self.assertEqual((old_skill / "SKILL.md").read_text(), original)
-        self.assertTrue((old_skill / "references/writing-from-related-work.md").is_file())
+        self.assertTrue((self.project / ".paper-writing/skills/cpw-write/references/writing-from-related-work.md").is_file())
+        self.assertFalse((self.project / ".agents/skills/paper-playbook").is_symlink())
         self.assertTrue((self.project / ".agents/skills/cpw-write/SKILL.md").is_file())
+
+    def test_old_writing_links_retire_without_removing_project_content(self):
+        registration = self.project / ".agents/skills"
+        registration.mkdir(parents=True)
+        for name in WRITING_GUIDES:
+            old = self.project / ".paper-writing/skills" / name
+            old.mkdir(parents=True)
+            (old / "SKILL.md").write_text("customized old guide: " + name)
+            (registration / name).symlink_to("../../.paper-writing/skills/" + name)
+        for _ in range(2):
+            self.install()
+            for name in WRITING_GUIDES:
+                self.assertFalse((registration / name).is_symlink())
+                self.assertFalse((registration / name).exists())
+                old = self.project / ".paper-writing/skills" / name / "SKILL.md"
+                self.assertEqual(old.read_text(), "customized old guide: " + name)
+        self.assertTrue((registration / "cpw-write/references/collaborative-polishing.md").is_file())
+
+    def test_user_writing_migration_preserves_foreign_entries(self):
+        target = Path(self.temp.name) / "user skills"
+        target.mkdir()
+        managed = target / "abstract-craft"
+        managed.symlink_to(ROOT / "skills/abstract-craft")
+        foreign = target / "polish-writing"
+        foreign.symlink_to(Path(self.temp.name) / "another toolkit/polish-writing")
+        custom = target / "technique-overview"
+        custom.mkdir()
+        (custom / "SKILL.md").write_text("user-owned overview guidance")
+        for _ in range(2):
+            subprocess.run(["bash", str(ROOT / "install.sh"), "--user", str(target)],
+                           capture_output=True, text=True, check=True)
+            self.assertFalse(managed.is_symlink())
+            self.assertTrue(foreign.is_symlink())
+            self.assertEqual((custom / "SKILL.md").read_text(), "user-owned overview guidance")
+        self.assertTrue((target / "cpw-write/references/sections/02_abstract.md").is_file())
 
     def test_legacy_config_directory_symlink_is_not_followed(self):
         external = Path(self.temp.name) / "external config"

@@ -3,7 +3,10 @@
 面向 Codex 的密码学与安全论文写作工具箱，帮助作者把已有研究结果组织成清楚、准确的论文。
 包含文献与引用核对、全文规划、章节写作、语言润色、图表、模拟审稿、rebuttal 和投稿准备。
 
-默认写作路径：
+文章写作统一使用 `$cpw-write`。它按当前任务读取内部指南，处理全文规划、摘要、
+逐段润色、技术概览、评估和相关工作。文献、图表、审稿和投稿准备保留独立入口。
+
+新论文的写作路径：
 
 **梳理已有结果 → 阅读合适的相关论文 → 拟定结构与表达方案 → 撰写关键部分 → 逐节完善 → 按需审稿与投稿准备**
 
@@ -20,7 +23,7 @@
 ./install.sh --user
 ```
 
-这会在 `~/.agents/skills/` 中注册 25 个技能，链接到当前工具箱检出目录，并保留已有同名技能。
+这会在 `~/.agents/skills/` 中注册当前版本的入口和工具技能，链接到此检出目录，并保留用户自建的同名技能。
 本机安装会随这个检出目录中的内容更新；请保留该目录。下一轮 Codex 对话即可尝试调用，
 若尚未显示则重开会话。新论文可这样初始化：
 
@@ -38,8 +41,8 @@ cd /path/to/my-paper
 ```
 
 安装器会准备项目记录和 LNCS 稿件骨架，将工具资源复制到 `.paper-writing/`，
-并在 `.agents/skills/` 下建立技能目录链接。安装后提供 7 个 `$cpw-*` 写作入口和
-18 个配套技能。默认稿件是 `paper/main.tex`，参考文献是 `paper/refs.bib`。
+并在 `.agents/skills/` 下建立技能目录链接。7 个 `$cpw-*` 入口覆盖不同工作流程，
+其中文章写作统一由 `$cpw-write` 处理。默认稿件是 `paper/main.tex`，参考文献是 `paper/refs.bib`。
 
 `.agents/skills/` 和技能目录链接遵循 [Codex 的官方技能发现约定](https://learn.chatgpt.com/docs/build-skills#where-codex-loads-local-skills)。
 这些技能属于当前论文项目，不会写入个人全局配置。
@@ -54,12 +57,17 @@ cd /path/to/my-paper
 - 重复安装会补充缺少的资源，但不会覆盖已有文件内容；更新已有技能时需保留并合并本地修改。
 - 旧安装器创建的入口链接会被清理，用户自己的配置和文件会保留。
 
+旧的 `paper-playbook`、`polish-writing`、`abstract-craft`、`technique-overview`、
+`related-work-writing` 和 `experiments-writing` 已合并为 `cpw-write` 的内部指南。
+重新安装会移除本安装器创建的这些旧入口链接，保留旧项目中的指南内容和自定义技能。
+已有项目的入口文件也会保留；更新项目副本时，应将其本地修改与新版 `cpw-write` 合并。
+
 先在 `STATE.md` 中记录论文问题、已有贡献、目标会场、稿件与数据位置。
 使用已有项目时，同时记录实际参考文献路径和构建命令。
 
 ### 怎样开始一次写作任务
 
-在 Codex 中打开论文项目，按任务选择技能，也可以用自然语言说明需求。
+在 Codex 中打开论文项目，用 `$cpw-write` 发起文章写作，也可以用自然语言说明需求。
 Codex CLI / IDE 中可用 `$` 指定技能或通过 `/skills` 查找。技能以当前 Codex
 会话的工具和模型执行；这些入口不是终端命令，也不会自动创建多个助手进程。
 调用方式见 [官方技能说明](https://learn.chatgpt.com/docs/build-skills#how-codex-uses-skills)。
@@ -79,7 +87,11 @@ $cpw-write 请润色 paper/sections/intro.tex。
 沿用当前写作方案，保持技术主张和引用不变，重点检查领域用词和解释是否清楚。
 ```
 
-局部修改复用已有参考分析和稿件习惯，无需重新走完新论文的全部流程。
+局部修改复用已有参考分析和稿件习惯。没有 `STATE.md`、证据台账或项目安装时，
+可以直接提供段落、稿件路径和已有支撑材料，不需要先初始化项目。
+
+`cpw-write` 的章节指南保存在 `skills/cpw-write/references/`，作为内部文档按需读取。
+你只需说明要写什么，助手会选择当前需要的指南；无需分别调用摘要、润色或评估技能。
 
 如果刚安装的技能尚未出现，重开 Codex 会话后检查；也可直接要求读取
 `.paper-writing/skills/cpw-write/SKILL.md`。在非 Git 项目中，建议从论文项目根目录开始会话。
@@ -132,7 +144,7 @@ IACR ePrint 使用其规范页面核对身份、版本和引用信息；全文�
 收到审稿意见后准备 rebuttal；提交前核对当前会场要求、匿名性、引用、源文件和 PDF。
 上传、投稿、发送回复或公开发布需要作者明确批准。
 
-完整方法见 [参考论文阅读与写作规划](skills/paper-playbook/references/writing-from-related-work.md)。
+完整方法见 [参考论文阅读与写作规划](skills/cpw-write/references/writing-from-related-work.md)。
 
 ## 全文结构怎样安排
 
@@ -146,13 +158,13 @@ IACR ePrint 使用其规范页面核对身份、版本和引用信息；全文�
 | Preliminaries | 后文使用的记号、定义、模型和已有工具 |
 | Main Technical Content | 协议、构造、算法或理论结果；按依赖拆分与排序 |
 | Correctness / Security / Analysis | 所声明性质及其支持；可随构造展开，也可独立成节 |
-| Evaluation | 现有实验如何回答研究问题；有实验性主张时设置 |
+| Evaluation | 现有参数计算、成本分析或测量如何回答研究问题 |
 | Related Work | 与相关成果的关系；可以前置，也可以放在主要内容之后 |
 | Conclusion | 有用的总结、取舍或剩余问题；按需要和会场要求设置 |
 | References / Appendix | 引用及详细支撑材料；遵循会场规定 |
 
 章节可以合并、拆分、移动或省略。Related Work 无论放在哪里，引言都应交代最直接的相关工作。
-不固定各节篇幅比例，也不在模板中预填研究结论。详见 [整体结构指南](skills/paper-playbook/sections/00_overall_structure.md)。
+不固定各节篇幅比例，也不在模板中预填研究结论。详见 [整体结构指南](skills/cpw-write/references/sections/00_overall_structure.md)。
 
 ## 语言风格：领域用词自然，解释容易理解
 
@@ -164,8 +176,9 @@ IACR ePrint 使用其规范页面核对身份、版本和引用信息；全文�
 - 把对象、动作、条件和推理连接讲清楚，避免让读者补出省略的关键环节。
 - 保留假设、量词、安全模型、比较口径和证据状态；不采用机械禁用词表或固定句长。
 
-具体示例见 [语言与清晰表达指南](skills/polish-writing/references/field-language-and-clarity.md)；
-局部改写使用 [polish-writing](skills/polish-writing/SKILL.md)。
+具体示例见 [语言与清晰表达指南](skills/cpw-write/references/field-language-and-clarity.md)；
+局部改写参考[协作润色指南](skills/cpw-write/references/collaborative-polishing.md)，
+结构和归因的例子见[合成修改示例](skills/cpw-write/examples/revision-decisions.md)。
 
 ## 常用入口
 
@@ -181,8 +194,8 @@ IACR ePrint 使用其规范页面核对身份、版本和引用信息；全文�
 | `$cpw-rebuttal` | 按实际篇幅限制准备作者回复 | 内部详版和提交长度的回复 |
 | `$cpw-submit` | 准备供作者核对的提交材料 | 投稿材料和 `SUBMISSION.md` |
 
-在技能名之后直接描述主题、章节、数据来源或字数限制等要求。也可以按需调用
-`$paper-playbook`、`$polish-writing`、`$abstract-craft` 等配套技能。
+在技能名之后直接描述主题、章节、数据来源或字数限制等要求。文章写作只需
+`$cpw-write`；文献检索、图表和投稿等工具按相应任务使用。
 
 ## 论文项目中的记录
 
@@ -196,7 +209,8 @@ IACR ePrint 使用其规范页面核对身份、版本和引用信息；全文�
 | `REVIEWS.md`、`DECISIONS.md` | 审稿意见、修改行动和作者决定 |
 | `SUBMISSION.md` | 当前会场规则、实际检查结果和待处理项 |
 
-记录服务于写作与核对，按当前任务维护相关部分。草稿、真实日志、审稿意见和私人资料留在论文项目中。
+记录服务于写作与核对，按当前任务维护相关部分。局部修改可以沿用项目已有的记录方式。
+草稿、真实日志、审稿意见和私人资料留在论文项目中。
 
 ## 构建、检查与边界
 

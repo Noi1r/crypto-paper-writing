@@ -2,7 +2,7 @@
 
 Use this procedure when the author asks to derive or refine a style profile from
 previous writing. For the default new-paper workflow, use
-[writing from relevant papers](../../paper-playbook/references/writing-from-related-work.md)
+[writing from relevant papers](writing-from-related-work.md)
 instead. A personal profile is a separate optional artifact and does not block
 drafting or polishing.
 
