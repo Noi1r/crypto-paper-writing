@@ -11,15 +11,15 @@ description: Use before every double-blind submission, supplementary upload, ano
 
 ```bash
 # 1. keep a private deny-list (never commit a filled-in one publicly)
-cp skills/anonymize-check/scripts/denylist.example.txt paper/.denylist.txt   # then edit
+cp .paper-writing/skills/anonymize-check/scripts/denylist.example.txt paper/.denylist.txt   # then edit
 
 # 2. scan sources, the built PDF, the supplementary zip, the artifact directory
-python3 skills/anonymize-check/scripts/anon_check.py paper/ paper/main.pdf \
+python3 .paper-writing/skills/anonymize-check/scripts/anon_check.py paper/ paper/main.pdf \
         supplementary.zip artifact/ --deny-file paper/.denylist.txt \
         --allow-url 'github\.com/<third-party-org>/'
 
 # 3. self-test (synthetic sample; must print PASS)
-python3 skills/anonymize-check/scripts/anon_check.py --selftest
+python3 .paper-writing/skills/anonymize-check/scripts/anon_check.py --selftest
 ```
 
 Exit status 1 if any HIGH finding. `--json` for machine-readable output,

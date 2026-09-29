@@ -6,17 +6,17 @@ Revised PDF / supplementary upload allowed during rebuttal: <yes/no, quote the r
 
 | day | date | owner | work | done |
 |---|---|---|---|---|
-| D0 | | submission-rebuttal | store reviews privately; split into atomic points R<i>.<j>; no replies yet | [ ] |
-| D0 | | submission-rebuttal | fill `triage_table.md`; identify decisive reviewer and potential champion | [ ] |
+| D0 | | cpw-rebuttal | store reviews privately; split into atomic points R<i>.<j>; no replies yet | [ ] |
+| D0 | | cpw-rebuttal | fill `triage_table.md`; identify decisive reviewer and potential champion | [ ] |
 | D1 | | human author | approve experiment list (only must-answer points; pre-registered success criteria in DECISIONS.md) | [ ] |
 | D1–D3 | | experiment owner | run experiments with the paper's bench protocol; new EVIDENCE rows | [ ] |
-| D1–D3 | | submission-rebuttal | draft `rebuttal_detailed.md` per reviewer, evidence first | [ ] |
+| D1–D3 | | cpw-rebuttal | draft `rebuttal_detailed.md` per reviewer, evidence first | [ ] |
 | D3 | | independent checker | attack every new statement in the draft | [ ] |
-| D3–D4 | | submission-rebuttal | compress to `rebuttal_short.md` within budget (5% margin) | [ ] |
-| D4 | | reviewer-sim | "does each answer address the question asked?" pass | [ ] |
+| D3–D4 | | cpw-rebuttal | compress to `rebuttal_short.md` within budget (5% margin) | [ ] |
+| D4 | | cpw-review | "does each answer address the question asked?" pass | [ ] |
 | D4 | | human author | final approval | [ ] |
-| D4 | | submission-rebuttal | submit early; save the submitted text + timestamp | [ ] |
-| D5+ | | submission-rebuttal | interactive phase: answer follow-ups with the same rules; log in DECISIONS.md | [ ] |
+| D4 | | cpw-rebuttal | submit early; save the submitted text + timestamp | [ ] |
+| D5+ | | cpw-rebuttal | interactive phase: answer follow-ups with the same rules; log in DECISIONS.md | [ ] |
 
 Notes:
 - Keep real reviews out of any shared/public repository.

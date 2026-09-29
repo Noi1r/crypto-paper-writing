@@ -1,4 +1,4 @@
-# LITERATURE — related-work matrix (owner: `lit-scout`)
+# LITERATURE — related-work matrix (owner: `cpw-lit`)
 
 | key | work (public id) | venue/year | setting | core technique | asymptotics | concrete numbers (+source page) | code? | our delta |
 |---|---|---|---|---|---|---|---|---|

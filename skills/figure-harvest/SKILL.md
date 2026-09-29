@@ -1,6 +1,6 @@
 ---
 name: figure-harvest
-description: Harvest figures from a local corpus of public crypto papers (PDF), classify them by type, score their quality, and browse them in a local HTML contact sheet to learn which figure patterns work for a topic. Use before designing figures for a new paper or when extending figures/PATTERNS.md. Output is local-only (copyright).
+description: Harvest figures from a local corpus of public crypto papers (PDF), classify them by type, score their quality, and browse them in a local HTML contact sheet to learn which figure patterns work for a topic. Use before designing figures for a new paper or when extending .paper-writing/figures/PATTERNS.md. Output is local-only (copyright).
 ---
 # figure-harvest
 
@@ -13,21 +13,21 @@ words. The harvested images are never committed.
 * When the target venue or sub-field has conventions you do not know yet.
   Examples: symmetric papers use trail tables and round diagrams, FHE
   papers use bit layouts and pipelines, MPC papers use functionality boxes.
-* When extending `figures/PATTERNS.md` with a new pattern.
+* When extending `.paper-writing/figures/PATTERNS.md` with a new pattern.
 
 ## Procedure
 1. **Assemble the corpus.** Use a directory of *public* PDFs, such as ePrint
    downloads of the related-work list. Exclude your own drafts and anything
    under embargo:
    ```bash
-   python3 figures/harvester/harvest.py related_work/papers \
+   python3 .paper-writing/figures/harvester/harvest.py related_work/papers \
        --out /tmp/fig_gallery --exclude drafts --exclude ours --exclude '.zip' \
        --jobs 8 --timeout 90 --max-pages 60
    ```
    * `--exclude` takes a substring glob, or `re:REGEX` for a regular expression.
    * Directories are searched recursively.
    * Duplicate PDFs are skipped, detected by hash or by first-page text.
-2. **Browse.** Run `python3 figures/harvester/gallery.py /tmp/fig_gallery` and
+2. **Browse.** Run `python3 .paper-writing/figures/harvester/gallery.py /tmp/fig_gallery` and
    open `index.html`. The page groups figures by type and sorts them by
    quality. It has a type filter and a minimum-quality slider.
 3. **Inspect the best 10–20** for your planned figure types. For each one, note in words:
@@ -36,14 +36,14 @@ words. The harvested images are never committed.
    * how it handles baselines, units and log axes
    * what you would not copy
 4. **Distil.** Update the project's `paper/figs/NOTES.md`, or
-   `figures/PATTERNS.md` if the pattern is new. Follow
-   `figures/gallery_index.template.md`:
+   `.paper-writing/figures/PATTERNS.md` if the pattern is new. Follow
+   `.paper-writing/figures/gallery_index.template.md`:
    * pattern name
    * public ePrint ID and figure number ("see e.g.")
    * what works
    * pitfalls
    * the template that implements it (create one if missing: synthetic data,
-     plus a PDF+PNG in `figures/examples/`)
+     plus a PDF+PNG in `.paper-writing/figures/examples/`)
 5. **Discard.** Delete the gallery, or keep it outside the repository.
    Never `git add` a harvested PNG.
 

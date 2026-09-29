@@ -1,39 +1,18 @@
-# 07 Preliminaries
+# Preliminaries
 
-## Job
+Introduce the notation, definitions, models and prior tools needed to understand
+the subsequent technical material. Select background by its actual use.
 
-Fix notation and recall exactly the background the later sections use. Nothing more:
-standard material that is not referenced later goes to an appendix or is cited.
+A notation table can help readers navigate recurring symbols. Define a one-off
+symbol locally if that is easier to follow. Explain deviations from common
+conventions and distinguish objects such as rings, fields and their encodings
+when that distinction matters.
 
-## Structure
+Recall an existing construction or lemma at the level needed by this paper,
+with its assumptions and source. Explain the unfamiliar idea briefly if the
+intended audience needs that context. A substantial problem definition, system
+model or security model can be its own section.
 
-```
-2.1 Notation              compact table (symbol | meaning), 8–15 rows, 2 columns or a
-                          4-column (symbol | meaning | symbol | meaning) layout
-2.2 The <scheme/model>    e.g. "The <X> scheme", "Security model", "Threat model"
-2.3 The <pipeline stage>  the procedure the paper modifies, in the paper's notation
-2.4 <prior technique A>   one subsection per prior technique the construction builds on,
-2.5 <prior technique B>   stated as definitions/lemmas with citations
-2.6 <math tool>           e.g. characters, lattices, Walsh spectra, hashing bounds
-```
-
-## Rules
-
-- The notation table stays inside the Notation subsection, is short, and lists only
-  symbols reused at least twice. Declare deviations from common conventions
-  explicitly ("our indexing differs from the one traditionally used for AES").
-- Distinguish rings/fields precisely (F_p vs Z_{2^k}); define operators used with
-  non-standard meaning (e.g. "+" for XOR).
-- Short proofs of recalled facts may be given in place if a reviewer asked for them
-  or if they fix a gap in the literature; otherwise cite.
-- Prior techniques are recalled at the level needed to state your theorems, in your
-  notation, with the original cost formula.
-- If a reviewer is likely to be unfamiliar with the area (general IACR audience),
-  keep one paragraph of intuition per subsection; newcomers flag "background too
-  brief" as a weakness.
-
-## Checklist
-
-- [ ] Every symbol in the notation table is used in ≥ 2 sections.
-- [ ] Each later theorem's hypotheses are expressible with what §2 defines.
-- [ ] No material here that no later section uses.
+Check that later arguments have the definitions they rely on and that background
+has not introduced notation or detail that is never used. A reader should be
+able to tell which material is recalled and which results belong to this paper.

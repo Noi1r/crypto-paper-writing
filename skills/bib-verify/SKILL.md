@@ -15,7 +15,7 @@ own reading lists were drafted from memory, the verifier caught three such error
 
 1. Run the checker (network needed; polite 1 req/s):
    ```bash
-   python3 skills/bib-verify/scripts/verify_bib.py refs.bib --json bib-verify.json > bib-verify-report.md
+   python3 .paper-writing/skills/bib-verify/scripts/verify_bib.py paper/refs.bib --json paper/bib-verify.json > paper/bib-verify-report.md
    ```
    Resolution order: ePrint id (from `eprint=`, `url=`, `howpublished=`...) → OAI record; `doi=` → Crossref,
    then DataCite (Zenodo/LIPIcs/arXiv DOIs); otherwise a title search (DBLP if it answers, else Crossref).
@@ -30,7 +30,7 @@ own reading lists were drafted from memory, the verifier caught three such error
    be cleared too.
 4. For every *changed* entry, grep the paper for its key and re-read the citing sentence: a wrong reference often
    props up a wrong claim (a comparison row, a novelty statement, a parameter).
-5. Record the run in `LITERATURE.md` (date, counts) and keep `bib-verify-report.md` next to `refs.bib`; confirm that the report is newer than the bib and clean.
+5. Record the run in `LITERATURE.md` (date, counts) and keep `bib-verify-report.md` next to `paper/refs.bib`; confirm that the report is newer than the bib and clean.
 
 ## Rules
 

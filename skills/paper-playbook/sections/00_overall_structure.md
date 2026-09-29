@@ -1,88 +1,55 @@
-# 00 Overall structure, page budget, layout rules
+# Overall structure
 
-## Default skeleton (IACR LNCS conference paper)
+For a new paper or a requested reorganization, first establish its actual results
+and study suitable reference papers using
+[writing from relevant papers](../references/writing-from-related-work.md).
+Then propose an outline before drafting whole sections. State each section's
+purpose, available source material and conceptual dependencies, explaining the
+reference choices that informed the plan. For a local edit, use the existing plan.
 
-Page counts are for a body limit of roughly 25–30 LNCS pages; scale proportionally.
-Always check the current CFP for the actual limit and for what counts toward it.
+## Starting outline
 
-| § | title | share of body | job |
-|---|---|---|---|
-| — | Abstract + keywords | page 1 | state of the art → our technique → results + artifact |
-| 1 | Introduction | ~5% | funnel from field to bottleneck; pipeline; objective equation; open question |
-| 1.1 | Related Work | ~7% | comparison table + axis paragraphs + bridge + "Our work" |
-| 1.2 | Our Contributions | ~4% | lead-in + 3–4 ordered bullets |
-| 1.3 | Technique Overview | ~12–15% | recall prior routes → reduce to precise questions → insights → figure |
-| 1.4 | Organisation (optional) | 2–3 lines | only if the paper is long |
-| 2 | Preliminaries | ~12–18% | notation table; scheme recap; only what is reused later |
-| 3–5 | Main construction(s) | ~35% | theorem → construction → cost / selection rule → algorithm |
-| 6 | Security / correctness | varies | security claim, attack checklist, noise/failure analysis |
-| 7 | Implementation and evaluation | ~12–15% | baselines, platform, parameters, configurations, results, ablation, comparison |
-| 8 | Conclusion | ≤ 0.5 page | two to three sentences |
-| A– | Appendix | unlimited | proofs, extra tables, reproduction details |
+| Part | Reader's task | Placement and optionality |
+|---|---|---|
+| Abstract | Understand the problem, method and main results | Content determines its paragraph structure |
+| Introduction | Understand the motivation, contribution and closest prior work | Contributions can be prose or a list |
+| Technical overview | Understand the obstacles and key ideas | Part of the introduction or a separate section; may follow preliminaries if definitions are essential |
+| Preliminaries | Learn the notation, models and tools used later | A substantial problem statement or security model can have its own section |
+| Main technical content | Follow the protocol, construction, algorithm or theoretical development | Split and order sections by their actual dependencies |
+| Correctness, security and analysis | Assess the claimed properties and costs | Attach analysis to each construction or give it a separate section |
+| Evaluation | Assess empirical claims under stated conditions | Include when the paper has experimental results to report |
+| Related work | Understand the detailed relation to relevant results | Place early when it motivates the contribution, or later when comparison needs technical context |
+| Conclusion | Synthesize the significance, limits or remaining questions | Optional when no useful synthesis is needed and venue rules permit omission |
+| References and appendix | Find sources and detailed supporting material | Follow the applicable venue rules |
 
-Variants:
+This is a starting reading order. Merge, split, move or omit sections according to
+the content. Keep a concise account of the closest prior work in the introduction
+regardless of where the detailed related-work section appears.
 
-- **Symmetric design papers (ToSC/FSE):** security analysis is usually the largest
-  section (roughly a quarter to a third); a separate *Design rationale* section is
-  longer than the specification itself; related work may sit in a "state of the art"
-  subsection of the constraints section.
-- **Cryptanalysis papers:** the target's specification goes in §1 (e.g. §1.2), not in
-  its own section; the core distinguishing property gets its own section, the attack
-  another.
-- **Security conferences (CCS/S&P/USENIX/NDSS/PoPETs):** two-column formats; threat
-  model and system overview are expected early; evaluation carries more weight.
-- **Theory venues (TCC):** no experiments section; the technique overview often
-  becomes the main exposition.
+## Choose what gets space
 
-## Page discipline
+Give the main contribution and its explanation enough space to be assessed.
+Compress repeated motivation, unused background and redundant table narration.
+Do not assign fixed percentages to sections or require the conclusion to fill the
+last body page. Check the actual venue template, page limit and appendix policy
+before making layout decisions; do not silently alter required typography.
 
-Legal ways to save space, in order of preference:
+## Maintain continuity
 
-1. Tighten floats: algorithms `\footnotesize`, tables `\scriptsize` with
-   `\arraystretch` 0.88–0.92, `\tabcolsep` 2.5–3pt.
-2. Reduce global float/display glue in the preamble (`\textfloatsep`, `\intextsep`,
-   `\floatsep`, `\abovedisplayskip`): modest reductions only.
-3. Scale TikZ figures by 5–15%.
-4. Remove footnote URLs duplicated elsewhere.
-5. Only then cut sentences — cut adjectives before content, never cut numbers'
-   scoping sentences.
+Use consistent names and notation across the manuscript. A notation table is
+useful when it reduces lookup effort. Introduce the definitions needed for a
+passage before relying on them. Cross-reference detailed statements and proofs;
+simplified overview notation is acceptable when its relationship to the formal
+statement is explicit.
 
-**Forbidden (desk-reject risk):** `geometry` or any margin change, font-size change,
-line-spacing change, removing page numbers when the CFP requires them.
+Language and presentation choices follow the author's instructions, the current
+manuscript and the writing plan developed from relevant papers. An existing
+personal profile can supplement these choices when applicable; see
+[polish-writing](../../polish-writing/SKILL.md).
 
-**Overprinting trap:** a negative `\vspace` immediately before a float
-(`algorithm`/`table`/`figure`) can make text overprint the float in the PDF while the
-editor preview looks fine. Put negative glue *inside* the float before `\end{...}`,
-or delete it; scan the PDF with the camera-ready overlap checker.
+## Check the outline
 
-After every edit near the limit, rebuild and confirm the conclusion still ends on the
-last allowed page (see `skills/camera-ready`).
-
-## Notation and naming freeze (before writing, grep after writing)
-
-- One concept, one symbol. Keep a table in `paper/NOTATION.md` (symbol, meaning,
-  first defined in §). Replace globally and grep for the old symbol afterwards —
-  including glued macros like `\inS` produced by careless replacement.
-- One name for the framework/object: pick one word (e.g. "unified" vs "general") and
-  use it in the title, section headings, figure captions, contributions and overview.
-- Write membership as `$x \in S$`, not `$S \ni x$`.
-- Theorem numbers in the appendix refer back with `\Cref` to the body numbering; do
-  not renumber restated theorems.
-- Formulas in the overview are **copied** from the body statements, not retyped.
-
-## Global style rules (distilled from author preferences)
-
-- Avoid em/en dashes as sentence punctuation; use commas, colons or separate
-  sentences. (Ranges like `2--3` are fine.)
-- No "explanatory" mini-headings such as "Why X is needed" or "Where the cost goes";
-  they read as padding. Use statement-style paragraph headings (see overview file).
-- Keep the notation table compact and inside the Notation subsection.
-- Make the paper standalone for a general cryptographic reader: the first pages
-  (title, abstract, introduction) must summarise the contribution without the body.
-
-## Checklist
-
-- [ ] Section shares roughly match the budget; the conclusion is on the last body page.
-- [ ] No layout-changing package; page numbers present; paper size as required.
-- [ ] Notation table frozen; old symbols grep to zero.
-- [ ] Framework name identical in title, headings, captions, contributions, overview.
+Can readers identify the problem and contribution early, then acquire the
+background needed for each technical step? Is every substantive claim supported
+somewhere readers can find it? Does each planned section have a distinct purpose
+and actual material to present?

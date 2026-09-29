@@ -10,10 +10,11 @@ wording, `EVIDENCE.md` for reported numbers, and `LITERATURE.md` plus verified
 `refs.bib` for citations. Do not turn a successful build into a correctness claim.
 Treat theory, experiment, and prose as distinct sources of support.
 
-The role prompts in `agents/` can be read directly by Codex or other tools. Skills
-in `skills/<name>/SKILL.md` are procedures. `/cpw-*` files in `commands/` are
-equivalent prompts for Claude Code. Nothing is submitted, e-mailed, uploaded, or
-made public without explicit human approval.
+Codex workflows and supporting procedures live in `skills/<name>/SKILL.md`.
+The installer exposes them through the paper project's `.agents/skills/`.
+The seven `cpw-*` skills provide task entrypoints; they execute within the current
+Codex task and do not define separate agents. Nothing is submitted, e-mailed,
+uploaded, or made public without explicit human approval.
 
 When working on this toolkit, use only synthetic examples and public sources.
 Never add unpublished drafts, private reviews, real benchmark logs, server names,

@@ -33,13 +33,13 @@ Column rules (enforced by `scripts/lit_matrix.py`):
 
 ## Procedure
 
-1. Seed from `references/reading-lists/<area>.md`, then expand with `eprint-search` (last 12 months first).
+1. Seed from `.paper-writing/references/reading-lists/<area>.md`, then expand with `eprint-search` (last 12 months first).
 2. One row per *result* (a paper with two incomparable results gets two rows).
 3. Fill numbers only from the paper's tables/figures; if the paper's parameters differ from ours, note it in
    *setting* instead of "normalising" silently.
 4. Mark the 2–4 rows that are the real competitors (**bold** the work cell); record their exact compared versions and configurations.
-5. Lint: `python3 skills/lit-matrix/scripts/lit_matrix.py LITERATURE.md --bib refs.bib`.
-6. `python3 skills/lit-matrix/scripts/lit_matrix.py --template` prints an empty skeleton.
+5. Lint: `python3 .paper-writing/skills/lit-matrix/scripts/lit_matrix.py LITERATURE.md --bib paper/refs.bib`.
+6. `python3 .paper-writing/skills/lit-matrix/scripts/lit_matrix.py --template` prints an empty skeleton.
 
 ## Reading the matrix for gaps
 

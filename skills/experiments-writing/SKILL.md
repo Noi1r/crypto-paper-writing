@@ -1,92 +1,60 @@
 ---
 name: experiments-writing
-description: Use when turning benchmark results into the evaluation section. Enforces that every printed number traces to an EVIDENCE.md row, prescribes table designs (parameters, main results, ablation, comparison), fair-comparison statements, and boundary/limitation statements.
+description: Write an evaluation section from existing experimental evidence, with clear research questions, reproducible measurement conditions, fair comparisons and conclusions limited to the results.
 ---
 
 # Experiments writing
 
-## Iron rule
+Use the existing data, logs, `EVIDENCE.md`, relevant manuscript claims and baseline
+sources. This writing workflow reports established measurements; new benchmark
+execution is a separate research task.
 
-**Every number printed in the paper (text, table, figure, caption, footnote,
-abstract) has an `EVIDENCE.md` row**: `ID | number as printed | command | log path |
-commit | machine | date | runs/median`. Tables are generated from the data files
-behind those rows, not typed. Put
-`% EV:<ID>` comments next to hand-placed numbers so a script can cross-check.
+## Organize around the questions
 
-## Procedure
+Identify which claims the evaluation addresses, the measurements needed to
+interpret them, and what is actually available. Arrange setup and results so the
+reader can assess each question. Choose tables and plots for those questions.
+An evaluation section is appropriate when the paper reports experimental claims.
 
-1. **Freeze the data.** Obtain the final json/csv and the EVIDENCE
-   rows. Anything measured after the freeze requires a new row and a note in
-   `DECISIONS.md`.
-2. **Decide the scope sentence** for every range ("on the 9 parameter sets at ≥128-bit
-   estimated security"). Scope comes from the parameter/security table, generated.
-3. **Write the section** following `paper-playbook/sections/10_experiments.md`.
-4. **Generate tables** (below). Mark the best cell per column (bold, optional light
-   colour); two-level headers with `\multicolumn`; captions define every abbreviation
-   and symbol.
-5. **Write the fairness statements** (below) that apply.
-6. **Write boundary/limitation remarks** (below).
-7. **Cross-check script**: `make -C paper audit` or `python3 scripts/audit_tex.py paper/main.tex EVIDENCE.md`,
-   or extract every number from the PDF text (`pdftotext -layout`) and match it to
-   EVIDENCE rows; unmatched numbers are errors unless they are parameters or
-   citations. Record the result in `SUBMISSION.md`.
+## Describe the relevant conditions
 
-## Table set
+Report the workload, parameters, security or accuracy conditions, implementation
+versions, hardware, concurrency, measured boundary, repetitions and statistic
+that affect the result. State exclusions, failures and correctness checks that
+were actually performed. For security estimates, identify their source and model;
+a tool-derived security column is not applicable to every construction.
 
-| table | contents | notes |
-|---|---|---|
-| Parameters | one row per set: all scheme parameters, derived values, security estimate(s) | `\resizebox{\linewidth}{!}` if wide; security column mandatory |
-| Main results | per set: each configuration's time for the changed stage, total time, overheads (capacity, memory), ratio | ratio column states "vs <baseline>" in the header |
-| Ablation | each component alone vs composed; failure counts/timeouts for variants that do not work | strongest evidence that the combination is necessary |
-| Mechanism check | model-predicted vs measured operation counts | supports a cost model claim |
-| Comparison with published work | Method, Ref, per-stage times, total, ratio; "measured by us" vs "as reported" marker; threads; failure probability; key/communication sizes | incomparable rows: symbol + "—" in ratio column + caption explanation |
-| Client-side / communication | client cost, key sizes, setup cost | reviewers of transciphering/PSI/MPC ask for it |
+A comparison should identify the baseline and the conditions shared or changed.
+Label separately measurements reproduced by the authors and numbers quoted from
+another source. Explain material differences before interpreting a ratio.
 
-Layout: `\scriptsize`, `\arraystretch` ≈ 0.92, `\tabcolsep` ≈ 2.6pt; tables at `[t]`;
-table captions above tables, figure captions below figures.
+## Interpret results
 
-## Fair-comparison statements (use the ones that apply)
+- State the principal observation and its scope, then explain it to the extent
+  the evidence permits. Report relevant overheads and regimes where a method loses.
+- Use ablation when it helps assess a component or attribution claim. Describe
+  what the variants actually establish; a tested component's benefit does not
+  imply that it is necessary in every setting.
+- Attribute gains only as specifically as the controlled comparison supports.
+  Several simultaneous changes may support an overall gain without identifying
+  the contribution of each change.
+- Keep cost-model predictions, measurements and extrapolations distinguishable.
+  Report negative or inconclusive results when they affect a manuscript claim.
 
-- **Same pipeline:** "All ratios are against <baseline> run in our pipeline with the
-  same <radix/parameters/library commit>; only <stage> differs."
-- **Measured vs claimed:** "Rerunning the artifact of [X] on our machine reproduces
-  their claimed a–b× as c–d×; we report both."
-- **General caution before cross-paper tables:** "Such comparisons must be read with
-  care because of differences in libraries, hardware and failure probabilities; we
-  mark numbers taken from the original papers with ◇."
-- **Metric orientation remark:** "Our goal is throughput; for latency-critical
-  applications <other scheme> remains preferable."
-- **Parallelism remark:** "All our numbers are single-threaded. Evaluating
-  independent instances in parallel helps every scheme equally, so single-thread
-  numbers compare designs, not hardware."
-- **Security-level parity:** "Both our parameters and the baseline's are estimated
-  at λ bits with <estimator commit>; where the estimator has moved since the baseline
-  was published, we re-estimate both."
-- **Baseline strength:** "We use the fastest configuration of <library> for the
-  baseline (<flags>), not the default one." (Reviewers and shepherds check this.)
+## Preserve the data connection
 
-## Boundary / limitation statements
+Generate tables and plots from the recorded data. Each reported numerical result
+has an `EVIDENCE.md` entry; annotate literal values as `1.23 s\ev{E1}` or use a
+same-line `% EV:E1,E2` comment. Keep rounded values, units and comparison direction
+consistent with their source and with the abstract and contributions.
 
-- Exclusions: "The k instances below the claimed security level are excluded from the
-  headline ranges and flagged in Table <n>."
-- Overheads: "The composed evaluator consumes 1.2–1.5× [ill.] the baseline's
-  memory/capacity."
-- Regime where we lose: "For t ≥ 7 [ill.], [X] is faster because ...; the regimes do
-  not overlap." Say it before a reviewer does.
-- Not applicable: "Our method requires <condition>; for instances violating it the
-  implementation falls back to the baseline (log shows '<message>')."
-- Measurement noise: "Absolute times vary with machine load across sessions; all
-  ratios come from interleaved back-to-back runs in one session."
+Run `make -C paper audit`, or
+`python3 .paper-writing/scripts/audit_tex.py paper/main.tex EVIDENCE.md` for the
+default layout. This checks ledger fields, log paths and linked literals in
+reachable TeX files. Review units in headings, macro-generated and graphic
+numbers, claim scope and derived arithmetic separately. See
+`.paper-writing/docs/evidence-audit.md` for supported syntax and limitations.
 
-## Measurement hygiene to report (and to follow)
-
-- Interleave A/B runs (ABAB...) in the same session; report median and IQR/CI.
-- No concurrent heavy jobs; use a bench lock; pin threads.
-- Never mix numbers from different sessions in one ratio; if an earlier number is not
-  reproducible, retract it explicitly (and say so in the rebuttal if already quoted).
-- Decryption/output verification for every run.
-
-## Output
-
-`paper/sections/experiments.tex`, generated tables in `paper/tables/`, the
-cross-check report in `SUBMISSION.md`.
+Deliver the requested evaluation text with its necessary tables or figures, and
+report the checks actually performed. See
+[the section guide](../paper-playbook/sections/10_experiments.md).

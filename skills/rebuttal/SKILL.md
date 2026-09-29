@@ -5,7 +5,7 @@ description: Use when reviews arrive and an author response (rebuttal / interact
 
 # Rebuttal
 
-Templates: `templates/rebuttal/{timeline.md, triage_table.md, rebuttal_short.md,
+Templates: `.paper-writing/templates/rebuttal/{timeline.md, triage_table.md, rebuttal_short.md,
 rebuttal_detailed.md}`. Never commit real reviews to a shared repository; keep them in
 the private project only.
 
@@ -16,7 +16,7 @@ the private project only.
 | D0 | Read all reviews twice, no replies. Copy each review verbatim into the private project. Split into atomic points with ids (R1.1, R1.2, ...). |
 | D0–D1 | Triage table. Identify the decisive reviewer (the most negative with the highest confidence) and the potential champion. Decide which new experiments are feasible within the window. |
 | D1–D3 | Run experiments/verification (the paper's existing benchmark protocol; interleaved runs; new EVIDENCE rows). Draft the detailed internal version per reviewer. |
-| D3–D4 | Compress to the short version within the word/character budget. Independent check + reviewer-sim pass on the draft ("does this answer the question asked?"). |
+| D3–D4 | Compress to the short version within the word/character budget. Independent check + cpw-review pass on the draft ("does this answer the question asked?"). |
 | D4 | Human author final review; submit early (systems get slow near deadlines; convert the deadline to your timezone). |
 | after | Interactive phase: answer follow-up questions within the window; same evidence-first rules. Record everything in `DECISIONS.md`. |
 

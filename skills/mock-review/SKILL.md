@@ -7,7 +7,7 @@ description: Use before submission (about 3 days and again 1 day before) or befo
 
 ## Principles
 
-1. **Falsify first.** The writer first produces a list of falsifiable statements
+1. **Falsify first.** Prepare a list of falsifiable statements
    (from `CLAIMS.md` and the contribution list: "the packing bound k ≤ N/(2tw) is
    tight", "the distinguisher holds for every key", "hypothesis H is necessary"). Reviewers are told to break them, not to praise.
 2. **Personas are views of one analysis, not independent experts.** Say so in the
@@ -24,7 +24,7 @@ description: Use before submission (about 3 days and again 1 day before) or befo
 | persona | stance | checks |
 |---|---|---|
 | **Expert-skeptic** (theory) | senior expert in the exact subfield, assumes the result is wrong | counterexamples on small parameters; hypotheses vs the paper's own parameter table; sufficient-vs-necessary confusions; body vs appendix formula mismatches; proof gaps; overclaimed proof status (heuristic stated as theorem) |
-| **Generalist** (novelty/writing) | good cryptographer outside the subfield | can I restate the idea after the overview? is the delta over the closest prior work explicit? is "unified"/"first"/"optimal" justified? is the body self-contained without the appendix? |
+| **Generalist** (novelty/writing) | good cryptographer outside the subfield | can I restate the idea after the overview? is the advance over the closest work explicit and supported? are the main statements and assumptions understandable, with clear pointers to detailed support? |
 | **Implementer** (experiments) | builds the same thing in practice | baseline strength/config; same machine/session; scope of ranges; excluded instances; overheads disclosed; ablation present; artifact runs; security estimates per instance |
 | Data auditor (optional) | accountant | recomputes every ratio, sum and derived parameter in every table from EVIDENCE rows and logs |
 | Desk-reject auditor (optional) | PC chair | page limit, template, fonts, page numbers, anonymity (run `anonymize-check`), links resolve, references complete |
@@ -38,8 +38,10 @@ Pick 3 (default) to 5 personas; weights and venue anchors from
 1. **Brief** (`reviews/REVIEW-BRIEF.md`): venue, paper path + hash, falsifiable
    statement list, persona assignments, what is out of scope (e.g. "we do not rerun the
    full benchmark; historical logs are not presented as fresh reproduction").
-2. **Dispatch** persona agents in parallel, each with the brief and instructions to
-   try to refute first.
+2. **Review** from the selected viewpoints within the current Codex task, using
+   the brief to try to refute the claims first. Use actual subagents only when
+   the author requests them and delegation is available; choose their models
+   and reasoning effort according to the task and applicable project guidance.
 3. **Verify** each finding: reproduce counterexamples with a script, recompute numbers,
    open cited logs. Mark each finding `confirmed | false-positive | unverifiable`.
 4. **Score** with the six-point scale + confidence 1–4 per persona, plus dimension
@@ -95,6 +97,6 @@ subjective band with conditions (not a statistic) | top preparation items for re
 | data | two incommensurable counters in one column | state each column's counter source in the caption |
 | writing | composite gain credited to one component | label each number with its configuration |
 | writing | "rigorous guarantee" for an asymptotic/heuristic result | "asymptotic, certified per instance" |
-| citations | fabricated or wrong metadata, wrong author count | `lit-scout` verifies each entry against DOI/ePrint |
+| citations | fabricated or wrong metadata, wrong author count | `cpw-lit` verifies each entry against DOI/ePrint |
 | layout | overprinting after negative vspace near floats | PDF overlap scan |
 | strategy | best evidence (an ablation) not in the paper | ask "which experiment would convince a skeptic?" and check it is in the body |

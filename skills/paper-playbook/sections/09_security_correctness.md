@@ -1,67 +1,35 @@
-# 09 Security and correctness
+# Security, correctness and analysis
 
-The shape depends on the paper type; pick the matching block.
+Explain which properties the paper establishes, in which model, and with what
+support. Select the applicable material from the paper's actual claims.
 
-## A. Performance paper built on standard assumptions (FHE, protocols)
+## Formal properties
 
-- **Security level statement**: which estimator (name, version/commit), which
-  attacks were run, which attack is binding, which distributions (secret, error).
-  Say "estimated security under <tool> at <commit>" rather than "verified security".
-- **Parameter table carries a security column** for every instance used in any
-  result table; instances below the claimed level are excluded from headline ranges
-  and flagged.
-- **Same security level as the baseline** for fair comparison; state it in a
-  footnote if the estimator has drifted since the baseline was published.
-- **Recent attacks**: check the last ~12 months of ePrint for attacks on your key
-  distribution (sparse secrets, special rings). If an attack applies to both you and
-  the baseline, measure both side by side and give a fix that applies to both.
-- **Outsource security analysis to standard tools when possible.** A self-built
-  estimator for a non-standard distribution makes a performance paper look like a
-  cryptanalysis paper and satisfies neither audience.
-- **Correctness/noise**: failure probability with its model (heuristic independence,
-  CLT, worst case) and a measured noise column; decryption-verify every
-  benchmarked run.
-- **Pre-emptive defence of a known weakness** (four layers): acknowledge → relocate
-  (e.g. failure happens once at key generation, rejection-sample) → quantify (≤ 1 bit
-  leakage) → anchor to accepted theory (cite) → price the fallback ("with the
-  conservative choice the speedup drops by a factor ≈ c").
+State the relevant experiment, adversarial powers, assumptions, quantifiers,
+probability space and bound. For correctness, make the input domain and failure
+conditions explicit. Connect the argument to the construction as specified.
+Identify which statements have complete proofs, sketches or unresolved gaps.
 
-## B. Symmetric design paper (ToSC/FSE)
+When the paper uses a proof system, distinguish the encoded relation and its
+security guarantee from the application's intended property where they differ.
+A successful implementation run or accepted proof alone does not establish that
+the intended relation was encoded correctly.
 
-- `Security claim.` as its own paragraph in the specification: bits of security and
-  data limits per key/IV.
-- Opening paragraph of the analysis section: state that internal parameters were
-  chosen from this analysis; state the conservative adversary model; give the roadmap
-  and what sits in the appendix.
-- Attack checklist from generic to specific: generic/TMDTO → guess-and-determine →
-  (fast) correlation → algebraic → fast algebraic → Gröbner/linearisation →
-  structural/weak keys/invariants → related-key (if relevant) → implementation-level
-  (decryption failure, noise leakage) → **summary table** attack × complexity × margin.
-- Each attack: definition sentence → quantification formula → conclusion sentence
-  comparing with the security claim's limits.
-- When modifying an existing design, show explicitly that every changed parameter
-  does not reduce security (e.g. wider outputs ⇒ divide data-complexity bounds by the
-  width ratio and show the margin), and give a side-by-side table vs the original.
-- Honest negative results ("our linear attempt did not match the predicted
-  correlations") are accepted if framed as open problems.
+## Concrete estimates or empirical support
 
-## C. Cryptanalysis paper
+If reporting a security estimate, identify its model, tool or source, version,
+parameters and relevant limitations. Distinguish an attack-cost estimate from a
+formal reduction and from the absence of a successful attack in an experiment.
+For compared parameter sets, explain the security convention being matched.
 
-- Complexities as (time, data, memory) triples plus success probability.
-- Distinguishers verified experimentally on reduced versions ("implemented on reduced
-  rounds as a proof of concept"), with the script in the artifact.
-- Weak-key classes stated with their size.
+Report noise, failure probabilities, success rates or related measurements when
+they support the actual claim, with their distributional assumptions and scope.
+A parameter change needs analysis of the properties it affects; performance
+improvement alone is not evidence of preserved security.
 
-## D. Theory / new assumption
+## Open issues and placement
 
-- If a new assumption is introduced, build credibility by showing 2–3 equivalent
-  formulations, search-to-decision and worst-to-average style reductions where
-  possible, and an explicit list of attacks considered (linearisation, algebraic,
-  lattice). End with "this assumption warrants further cryptanalytic study".
-
-## Checklist
-
-- [ ] Every instance in a result table has a security entry from a named tool.
-- [ ] Binding attack named; inapplicable attacks justified with a citation.
-- [ ] Known weaknesses handled with the four-layer pattern.
-- [ ] Modified designs: parameter changes shown not to reduce security.
+State a known limitation and its effect on the claim plainly. Describe a repair
+or alternative only when its properties are supported. Organize proofs locally
+or in a dedicated section, with detailed material in an appendix where the
+venue allows it and precise pointers from the main statements.

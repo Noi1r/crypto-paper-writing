@@ -73,7 +73,7 @@ Venue-specific extra attention:
 | "Overlap with prior/concurrent work" | all | explicit delta paragraph; "what this paper is not" sentence |
 | "Not self-contained / hard to follow" | all | technique overview passes the goal test; notation table |
 | "Missing threat model or ethics" | CCS/S&P/USENIX/NDSS/PoPETs | dedicated sections as the CFP requires |
-| Format violation | all | camera-ready/submission checklists (`skills/camera-ready`, `templates/handoff/SUBMISSION.md`) |
+| Format violation | all | camera-ready/submission checklists (`.paper-writing/skills/camera-ready`, `.paper-writing/templates/handoff/SUBMISSION.md`) |
 
 ## 4. Contribution type vs venue (observed heuristics, not rules)
 

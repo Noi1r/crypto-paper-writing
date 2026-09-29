@@ -1,62 +1,35 @@
-# Toy technique overview and related-work table
+# Synthetic overview and comparison examples
 
-Invented papers; all numbers and citations illustrative.
+The mechanisms and results here are invented for exposition. The examples show
+how an explanatory choice depends on the result being discussed.
 
-## Related-work table (T3, PSI)
+## An overview organized around one observation
 
-```latex
-\begin{table}[t]
-\centering\scriptsize
-\caption{Asymptotic comparison of unbalanced PSI protocols. $n$: server set size;
-$m$: client set size; $\sigma$: statistical security; $\lambda$: computational
-security. $\dagger$: semi-honest only. $\ddagger$: requires FHE.}
-\label{tab:related}
-\renewcommand{\arraystretch}{0.92}
-\begin{tabular}{llccc}
-\toprule
-Technique & Method & Communication & Server comp. & Rounds \\
-\midrule
-\multirow{2}{*}{OPRF-based} & [E21]$^\dagger$ & $O(n\,(\sigma+\log nm))$ & $O(n)$ & 2 \\
-                            & [G23]          & $O(n\,\sigma)$           & $O(n)$ & 2 \\
-\midrule
-FHE-based & [F22]$^\ddagger$ & $O(m\log n)$ & $O(n)$ HE ops & 1 \\
-\midrule
-\textbf{Ours} & & $O(n\,\sigma/c)$ & $O(n)$ & 2 \\
-\bottomrule
-\end{tabular}
-\end{table}
-```
+> The repeated setup cost comes from rebuilding the same public lookup index for
+> every request. Once this index is constructed, each request can read it without
+> modifying it. We therefore keep the index across a batch and account separately
+> for its construction and use. This change can amortize setup across the batch;
+> it does not remove the per-request work or improve the single-request case.
 
-Rules shown: caption defines every symbol; daggers mark scope; last row "Ours"
-matches the formula in the abstract.
+One observation is enough for this example. A diagram is optional because the
+state relationship can be described briefly in words.
 
-## Contrasting-verb bullets (T1)
+## An overview organized by dependent proof steps
 
-> Recently, two independent lines of work exploit the structure of the test
-> polynomial rather than its degree alone:
-> - **Multi-value PBS** restricts *what* is encoded: several tables share one
->   polynomial whose coefficients factor through a common term [A23]; however, it
->   requires tables with a common factor, leaving general tables open.
-> - **Tree-based PBS** restricts *how* a table is read: a large table is split into
->   levels evaluated by successive rotations [B24]; the number of rotations grows with
->   the table size.
+> We first show that decoding the canonical representation preserves the relation
+> on the restricted domain. We then use this property to compare verification
+> on the original and canonical encodings. The second argument depends on the
+> domain condition in the first; outside that domain the correspondence fails.
 
-## Bad vs good overview headings
+Here a dependency gives the reader a useful order. The explanation can refer to
+formal lemmas in the body without reproducing their full proofs.
 
-| bad | good |
-|---|---|
-| "Why packing is needed" | "Window width, not table count, bounds the packing factor." |
-| "Where the cost goes" | "Output separation is linear and therefore free of bootstrapping." |
-| "The SAT model" | "Clustering turns a trail search into a model-counting problem." |
-| "Our hashing" | "Fingerprint length alone fixes the false-positive rate." |
+## Related work under different conditions
 
-## Tiny worked example (T2)
+> Method A prepares each request independently and supports changing the public
+> index between requests. Method B reuses a fixed index and reduces repeated
+> setup work. Our toy evaluator studies the latter workload. The results do not
+> establish which method is preferable when the index changes frequently.
 
-> Take the 4-bit S-box S = [6,4,12,5,0,7,2,14,1,15,3,13,8,10,9,11] [ill.]. Its DDT has
-> maximum entry 4 [ill.], so a single-trail bound gives 2^{-2} per active S-box. The
-> input difference 0x3 maps to 0x3 with probability 2^{-2} [ill.] through two rounds
-> via 4 [ill.] distinct characteristics, so the differential probability is 2^{-1}
-> [ill.], a factor of 2 [ill.] above the single-trail bound.
-
-Every number in such an example must be recomputable by a script (e.g. with the
-`cryptomath.symmetric` DDT helper) listed in `EVIDENCE.md`.
+A comparison table would help if there were enough distinct methods and matched
+metrics to compare. These few relationships can be explained directly.

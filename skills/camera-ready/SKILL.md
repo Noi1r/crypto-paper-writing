@@ -59,10 +59,10 @@ Quote into `SUBMISSION.md` §Camera-ready, with URL and date:
 ## 4. Final compile checks (must all pass)
 
 ```bash
-latexmk -pdf main.tex                     # twice if BibTeX changed; latexmk handles it
-python3 skills/camera-ready/scripts/pdf_checks.py main.pdf --log main.log --limit <N>
-pdffonts main.pdf                         # every font 'emb yes'; avoid Type 3 bitmap fonts
-grep -c '??' <(pdftotext main.pdf -)      # 0
+make -C paper camera
+python3 .paper-writing/skills/camera-ready/scripts/pdf_checks.py paper/main_camera.pdf --log paper/main_camera.log --limit <N>
+pdffonts paper/main_camera.pdf            # every font 'emb yes'; avoid Type 3 bitmap fonts
+grep -c '??' <(pdftotext paper/main_camera.pdf -) # 0
 ```
 
 - [ ] 0 undefined references/citations, 0 multiply defined labels, no "Rerun" warning.

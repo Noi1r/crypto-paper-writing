@@ -8,7 +8,7 @@ description: Search IACR ePrint (with a submission-date window) plus Crossref/DB
 ## Commands
 
 ```bash
-S=skills/eprint-search/scripts/eprint_search.py
+S=.paper-writing/skills/eprint-search/scripts/eprint_search.py
 python3 $S "blind rotation" "programmable bootstrapping" --months 12      # union of phrasings, last 12 months
 python3 $S "oblivious key-value store" --crossref --min-year 2019          # + published versions with DOI
 python3 $S "division property" --title-only                                # title search only

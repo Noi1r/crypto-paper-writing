@@ -1,55 +1,27 @@
-# 10 Implementation and evaluation
+# Evaluation
 
-Full procedure, table rules and fairness statements:
-[experiments-writing](../../experiments-writing/SKILL.md).
+Explain how existing measurements answer the paper's research questions. Use
+[experiments-writing](../../experiments-writing/SKILL.md) for evidence links and
+reporting details.
 
-## Nine-part structure
+## Choose the content
 
-```
-[opening]        "We evaluate <objects> inside <library>, changing only <stage>; everything
-                 else is that of <baseline>, so every gain below is due to <object> alone."
-                 Artifact footnote. Signpost: §x.1 fixes the setup, §x.2 reports results.
-[baselines]      One bullet per baseline: name + citation + what it is + where it runs
-                 (our pipeline vs their artifact) + third-party repository link.
-                 Paragraph on why some methods are "reported for context" only.
-[platform]       CPU model and frequency, threads, compiler and library versions/commits,
-                 repetitions and statistic, "every run is decryption-verified / output
-                 checked against a cleartext reference".
-[parameters]     Table: one row per parameter set with every parameter and a security
-                 column. Text: provenance of sets, coverage, estimator + commit, binding
-                 attack, excluded instances and why.
-[derived params] How the instance determines the configuration; tie-breaking.
-[configurations] Evaluators (i)(ii)(iii): which equals prior work, which is new.
-[results]        Signpost sentence + figure (stage breakdown / vs baselines) + main table.
-                 Three bold-headed claims, e.g.
-                 \textbf{Speedup.} scope → range → two concrete points.
-                 \textbf{The components compose, and neither suffices alone.} ablation.
-                 \textbf{Coverage and overhead.} new cases covered + capacity/memory cost.
-[comparison]     Table vs published implementations on the same parameters; incomparable
-                 rows marked with a symbol and "—" in the ratio column; measured vs claimed
-                 numbers both given.
-[limitations]    Remarks: metric orientation, parallelism policy, where we lose.
-```
+State the questions the available experiments address. Present the setup needed
+to interpret each result: workload, parameters, implementation, hardware,
+measurement boundary and statistic as applicable. Identify baseline provenance
+and any material differences in configuration.
 
-## Number discipline (summary)
+Organize results around the observed answers, with suitable tables or figures.
+Explain scope, variation, overheads and relevant cases where a method loses.
+Separate analytic predictions, local measurements and results reported elsewhere.
 
-1. Single data source (EVIDENCE rows → json/csv → tables); no hand-typed numbers.
-2. Scope sentence before every range.
-3. Exclusions stated explicitly.
-4. Reproduced vs claimed baseline numbers both reported.
-5. Incomparable is not forced into a ratio.
-6. Attribute each gain to the right component.
-7. Disclose overheads (capacity, memory, key size, setup).
-8. The ablation is the strongest evidence; include it in the body.
-9. Keep measured ratios; normalised variants go to the appendix.
-10. Baseline configuration details that favour or disfavour the baseline are
-    disclosed (appendix is fine).
+Ablation is useful when it addresses a component or attribution claim. Report
+what the variants establish, including a lack of improvement or an inconclusive
+result. A composition or necessity claim requires its own evidence.
 
-## Checklist
+## Check
 
-- [ ] Opening sentence isolates the changed component.
-- [ ] Platform paragraph has the five elements (library+version, CPU, threads,
-      repetitions+statistic, correctness check).
-- [ ] Parameter table has a security column; excluded rows justified.
-- [ ] Ablation in the body.
-- [ ] Every table cell traceable to an EVIDENCE row.
+Can the reader reconstruct what was compared and what was measured? Do the data
+support the stated conclusion and attribution? Are exclusions and limitations
+visible? Can reported values be traced to the source data, with consistent units,
+rounding and comparison direction?

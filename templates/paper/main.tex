@@ -28,16 +28,9 @@
 \hypersetup{pdfauthor={},pdftitle={},pdfsubject={},pdfkeywords={}}
 \ifdefined\pdfsuppressptexinfo \pdfsuppressptexinfo=-1 \fi
 
-% Optional modest float/display glue tuning (proceedings build only), see
-% skills/paper-playbook/sections/00_overall_structure.md.
-\iffull\else
-  \setlength{\textfloatsep}{10pt plus 2pt minus 2pt}
-  \setlength{\intextsep}{8pt plus 2pt minus 2pt}
-\fi
-
 \begin{document}
 
-\title{<<Mechanism>>: <<Effect>> for <<Setting>>}
+\title{<<Paper title>>}
 \titlerunning{<<Short title>>}
 \ifanon
   \author{Anonymous Submission}
@@ -49,12 +42,15 @@
 
 \input{sections/abstract}
 
-\input{sections/intro}          % 1 Intro, 1.1 Related Work, 1.2 Contributions, 1.3 Overview
-\input{sections/prelim}         % 2 Preliminaries
-\input{sections/construction}   % 3-5 Main construction(s)
-\input{sections/security}       % 6 Security / correctness
-\input{sections/experiments}    % 7 Implementation and evaluation
-\input{sections/conclusion}     % 8 Conclusion
+% Adapt this reading order to the paper's actual content and dependencies.
+\input{sections/intro}
+\input{sections/overview}      % may be merged into intro or follow preliminaries
+\input{sections/prelim}
+\input{sections/construction}  % split into multiple sections as needed
+\input{sections/security}      % analysis may instead accompany each construction
+\input{sections/experiments}   % omit when there are no experimental claims
+\input{sections/related}       % may move earlier or become an intro subsection
+% \input{sections/conclusion}  % optional closing synthesis
 
 \ifanon\else
 \subsubsection*{Acknowledgements.} <<Acknowledgements (camera-ready only).>>
@@ -63,9 +59,8 @@
 \bibliographystyle{splncs04}
 \bibliography{refs}
 
-\appendix
-% APPENDIX -- supplementary; reviewers are not obliged to read it, so nothing here
-% may be load-bearing for the body's claims.
-\input{sections/appendix}
+% Detailed support may go in an appendix according to the venue's rules.
+% \appendix
+% \input{sections/appendix}
 
 \end{document}

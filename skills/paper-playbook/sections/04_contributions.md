@@ -1,67 +1,30 @@
-# 04 Our Contributions
+# Contributions
 
-About one LNCS page: a lead-in sentence and three or four bullets (or bold-titled
-paragraphs).
+Make the new results and their importance easy to identify. Use the supported
+claims and the actual technical content to decide what belongs here.
 
-## Lead-in template
+## Select and order
 
-> Inspired by <structural observation>, we determine <bound / characterisation>.
-> Building on it, we propose <framework/construction name> that <what it subsumes or
-> enables>. Our main contributions are summarised below:
+Group related results when they form one contribution. Separate results when
+their significance or supporting arguments are distinct. Choose an order that
+highlights the central result or makes dependencies easy to follow; preserve a
+clear existing order. The number of items follows the work.
 
-## Fixed order: structure → framework → algorithm → numbers
+For each contribution, explain what is established, what is new relative to the
+relevant work, and any condition needed to interpret it. A precise limitation is
+part of a truthful statement and may belong in the contribution itself.
 
-1. `\textbf{From <structure> to <new construction>.}` What structure was found; the
-   characterisation it yields; the new object it produces; one coverage sentence with
-   a single percentage or count (pointing to a table, not a lemma).
-2. `\textbf{A unified <framework>.}` Key observation → framework → where each prior
-   work sits inside it → why interior points beat the corners → "for any instance,
-   the best configuration is selected by a closed-form rule".
-3. `\textbf{A <algorithm> with <property>.}` "the first ... that exploits both ... at
-   once" → what it does → cost formula → the theory that supports it → optional "As a
-   bonus, ..." sentence.
-4. `\textbf{<Metric> improvements.}` Only the two most recognisable numbers, plus
-   "verified against the baselines in \Cref{tab:main}".
+Use theorems, algorithms, tables or section references when they help readers
+locate the formal statement or evidence. State the substantive result in words
+so that a reference number does not have to carry the explanation.
 
-## Two formats
+Choose prose, bullets or titled paragraphs for readability. Report quantitative
+results where they support the contribution, with their actual metric and scope.
+Select verbs according to the evidence: a measurement, observation and proof make
+different kinds of claim.
 
-- **A. `itemize`/`enumerate` bullets** when contributions are independent.
-- **B. Bold-titled paragraphs** ("Our first contribution is ...", "As a final
-  contribution, ...") when they build on one another; numbers can close each
-  paragraph.
-- **Roadmap style** (design papers): walk through the sections ("In Section 3 we
-  introduce ...; the rationale is developed in Section 4; ...") and embed the key
-  ratio in the evaluation sentence.
-- **One discovery, everything derived** (cryptanalysis papers): "Our main
-  contribution is the discovery of <property>, on which all our other results are
-  based." This is the strongest single-idea narrative.
+## Check
 
-## Wording rules
-
-- **No Lemma/Theorem numbers** in contribution bullets; point to tables/figures
-  (`\Cref{tab:...}`). Contributions read as results, not as proof references.
-- **No concessions or comparisons** inside contributions; limitations go to the
-  overview remarks or the evaluation section.
-- **Numbers only in bullet 1 (a coverage percentage) and bullet 4 (ratios).**
-- Each bullet: verb + deliverable + section pointer; 3–5 sentences; intra-bullet
-  connectives "Building on", "More importantly", "Consequently".
-- Strong verbs in order of force: prove / establish / show that > identify / observe >
-  introduce / propose > give / provide > implement / measure / validate. Avoid
-  "study", "investigate", "explore", "try to".
-- The sentence "where each prior work sits" must be **identical in substance** in
-  contribution 2, the related-work bridge paragraph and the overview figure caption.
-
-## Pre-flight
-
-Before prose: each bullet exists as a row in `CLAIMS.md` with status `survived` or
-`weakened` (then the bullet uses the weakened wording). Never promise a theorem the
-body does not contain.
-
-See `examples/toy_intro_and_contributions.md` for good/bad toy bullets.
-
-## Checklist
-
-- [ ] 3–4 bullets in structure → framework → algorithm → numbers order.
-- [ ] No lemma numbers; numbers only in bullets 1 and 4.
-- [ ] Every bullet has a CLAIMS row that survived falsification.
-- [ ] Placement-of-prior-work sentence consistent in three places.
+Does each item identify an actual result? Are its assumptions and comparison
+conditions clear? Do references lead to the promised support? Are several items
+merely repeating the same advance in different words?

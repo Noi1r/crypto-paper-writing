@@ -18,10 +18,10 @@ append dated sections on re-reads instead of overwriting.
 
 ```markdown
 ---
-key: RS21                       # bib key in refs.bib (must pass bib-verify)
+key: RS21                       # bib key in paper/refs.bib (must pass bib-verify)
 eprint: 2021/266                # or doi
 read: 2099-01-31 (sections 1-4, 6; appendix skipped)   # say what you did NOT read
-reader: lit-scout
+reader: cpw-lit
 ---
 ## One-line contribution
 ## Setting (model, parameters, security level, hardware)

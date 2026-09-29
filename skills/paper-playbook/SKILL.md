@@ -1,73 +1,82 @@
 ---
 name: paper-playbook
-description: Use when drafting or restructuring a cryptography paper (IACR LNCS / IACR journal / security-conference format). Gives the overall skeleton, page budget, and the rhetorical moves of every section from title to appendix, with good/bad toy examples.
+description: Plan, draft, or restructure a cryptography paper by studying relevant papers' content coverage, organization and exposition, then adapting those choices to the paper's actual results and intended readers.
 ---
 
-# Paper Playbook — structure and rhetorical moves for crypto papers
+# Paper playbook
 
-The playbook fixes the **form** of a paper; the content is always rewritten for the
-new paper. Templates here are structures, not wording to copy.
+Help the reader understand the problem, the method, the established results,
+and the conditions under which they hold. Choose the organization from the
+paper's content and dependencies. Preserve a clear existing author structure.
 
-## Five principles (read first)
+## Start with the requested task
 
-1. **Every number has one source.** Abstract, intro, body, tables and appendix quote
-   the same value from the same row of `EVIDENCE.md`. No number enters the paper
-   without an EVIDENCE row (see `SPEC.md`). Numbers are generated or grep-checked, never
-   retyped from memory.
-2. **Write falsifiable claims first, then try to break them.** Each contribution is
-   first written as one sentence in `CLAIMS.md`; an independent technical reader and `reviewer-sim`
-   attack it before the prose is polished.
-3. **Form is fixed, wording is new.** Reuse the skeleton and the moves, never the
-   sentences of a previous paper.
-4. **The body carries the weight; the appendix only supplements.** Reviewers are not
-   obliged to read appendices. No claim in the body may depend solely on an appendix.
-5. **Late edits are only necessary and verifiable ones.** In the last 24 hours before
-   a deadline, fix errors only; no stylistic rewrites.
+Read `STATE.md`, the relevant manuscript material and supporting records. Use
+`CLAIMS.md` for substantive claims, `EVIDENCE.md` for reported measurements,
+and `LITERATURE.md` plus the project's verified bibliography for citations.
+Use the actual manuscript and bibliography paths recorded in `STATE.md`.
 
-## Section files
+- **New paper or major restructuring:** follow
+  [writing from relevant papers](references/writing-from-related-work.md).
+  Establish this paper's results, read suitable reference papers, and use
+  [the overall structure guide](sections/00_overall_structure.md) to propose
+  an outline and presentation choices suited to this work.
+- **A section:** read its guide below and enough surrounding text to understand
+  its role. Reuse the project's writing references and plan; choose paragraphs
+  and headings to explain the actual result.
+- **Local polishing or translation:** use
+  [polish-writing](../polish-writing/SKILL.md), preserving the requested scope.
+- **Personal style profile, only when requested:** follow
+  [author-style guidance](../polish-writing/references/author-style.md). An existing
+  profile can supply explicitly adopted preferences where applicable.
 
-| file | section |
+Record or link the paper-specific writing plan in `STATE.md`. Local edits use
+the current manuscript and available plan without repeating the initial search;
+a missing optional plan or style profile does not block a local edit.
+
+## Shared writing decisions
+
+- Use terminology established in the relevant subfield and ordinary, concrete
+  prose around it. Keep technical names consistent and make the steps of the
+  explanation explicit. Apply the field-language and readability guidance in
+  [polish-writing](../polish-writing/SKILL.md) when drafting as well as revising.
+- Preserve assumptions, quantifiers, security models, comparison conditions,
+  numerical values and proof status. Keep limitations that qualify a claim
+  close enough to be read with it.
+- Paragraphs, contributions, questions, insights and figures have no prescribed
+  count. Introduce them when they help explain this paper's argument.
+- References to theorems, algorithms, tables and sections are useful when they
+  help readers locate support. Their placement depends on the passage.
+- Report what the available proof, analysis or experiment establishes. Leave a
+  precise gap when needed support is missing.
+- Treat a toy example's technical facts and organization as specific to that
+  example. A style preference cannot add a result or change its scope.
+
+## Section guides
+
+| Guide | Use it to decide |
 |---|---|
-| `sections/00_overall_structure.md` | skeleton, page budget, layout hard rules, notation freeze |
-| `sections/01_title.md` | title patterns and anti-patterns |
-| `sections/02_abstract.md` | three-part paradigm (state of the art → technique → results/artifact) |
-| `sections/03_introduction.md` | funnel → pipeline → objective equation → open question |
-| `sections/04_contributions.md` | lead-in + ordered bullets; wording rules |
-| `sections/05_technique_overview.md` | recall routes → reduce to questions → insights answer them |
-| `sections/06_related_work.md` | organise by axis not by time; comparison table; bridge paragraph |
-| `sections/07_preliminaries.md` | compact notation table, only what is reused |
-| `sections/08_main_construction.md` | statement → construction → cost/selection rule |
-| `sections/09_security_correctness.md` | security claim, attack checklist, correctness/noise |
-| `sections/10_experiments.md` | nine-part evaluation section; number discipline |
-| `sections/11_conclusion.md` | two-to-three sentence conclusion |
-| `sections/12_appendix.md` | appendix organisation; "not load-bearing" rule |
-| `examples/toy_abstracts.md` | good/bad abstracts for three toy papers |
-| `examples/toy_intro_and_contributions.md` | toy intro funnel + contribution list, good vs bad |
-| `examples/toy_overview_and_related.md` | toy technique overview and related-work table |
+| [Overall structure](sections/00_overall_structure.md) | section order, optional sections and space allocation |
+| [Title](sections/01_title.md) | which object, question or result should identify the paper |
+| [Abstract](sections/02_abstract.md) | how to explain the problem, method and main results concisely |
+| [Introduction](sections/03_introduction.md) | how to motivate the problem and position the contribution |
+| [Contributions](sections/04_contributions.md) | which results to highlight and how to order them |
+| [Technical overview](sections/05_technique_overview.md) | how to explain obstacles and the observations that address them |
+| [Related work](sections/06_related_work.md) | which relationships and comparison conditions to explain |
+| [Preliminaries](sections/07_preliminaries.md) | which definitions and prior tools readers need |
+| [Main content](sections/08_main_construction.md) | how to present the protocol, construction, algorithm or result |
+| [Security and correctness](sections/09_security_correctness.md) | how to state properties, support and remaining gaps |
+| [Evaluation](sections/10_experiments.md) | how existing measurements answer the research questions |
+| [Conclusion](sections/11_conclusion.md) | whether a closing synthesis adds useful information |
+| [Appendix](sections/12_appendix.md) | where detailed support belongs and how to reference it |
 
-Toy papers used throughout (all numbers are **invented and illustrative**):
+## Deliver and check
 
-- **T1 (FHE):** "faster programmable bootstrapping (PBS) via LUT packing" — pack
-  several small lookup tables into one test polynomial.
-- **T2 (symmetric):** "a new 6-round differential distinguisher for a toy SPN" found
-  by SAT-based trail search.
-- **T3 (protocols):** "PSI with lower communication" via a toy OPRF + cuckoo-hash
-  variant.
+Return a complete requested unit with a short explanation of substantive changes.
+Check its claim scope, notation, references and numbers against the relevant
+sources. For source edits, validate affected LaTeX and evidence links when
+applicable. Report which checks ran. Request a broader review when the task calls
+for one; local wording changes do not require a new full-paper review.
 
-## Workflow (used by the `writer` agent)
-
-1. Freeze notation and the framework's one-word name (`00_overall_structure.md`).
-2. Write `CLAIMS.md` rows for each contribution; record the technical support and an independent challenge.
-3. Draft in this order: contributions → technique overview → main construction →
-   experiments → related work → introduction → abstract → title → conclusion.
-   (The abstract is written last because it summarises the other sections.)
-4. After each section, run the section's checklist (end of each file).
-5. Hand to `reviewer-sim`; iterate; hand to `submission-rebuttal`.
-
-## Related skills
-
-- [abstract-craft](../abstract-craft/SKILL.md), [technique-overview](../technique-overview/SKILL.md),
-  [related-work-writing](../related-work-writing/SKILL.md),
-  [experiments-writing](../experiments-writing/SKILL.md),
-  [venue-calibration](../venue-calibration/SKILL.md), [polish-writing](../polish-writing/SKILL.md)
-- LaTeX skeleton: `templates/paper/`.
+The starter files are in `.paper-writing/templates/paper/`. Synthetic examples
+under `examples/` illustrate particular choices, without prescribing their form.

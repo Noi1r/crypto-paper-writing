@@ -1,56 +1,43 @@
 ---
 name: technique-overview
-description: Use when writing the Technique Overview (a.k.a. "Our Techniques") subsection. Recalls prior routes per paper at a mathematical level, reduces the gap to numbered questions, and answers each with a declarative "Insight" plus one figure, so a reviewer can restate the core idea without reading the body.
+description: Explain a cryptography paper's actual technical obstacles and the observations or mechanisms that address them, with enough detail to connect intuition to the main results.
 ---
 
-# Technique overview
+# Technical overview
 
-## Goal test
+The reader should be able to explain the main idea, why the difficulty arises,
+and how the technique addresses it before reading the full technical development.
 
-After reading only the abstract, introduction and overview, a reviewer can:
-(a) restate the main idea in two sentences, (b) write down the key formula,
-(c) say where each prior work sits relative to it, (d) believe the main theorem is
-plausibly true. Ask `reviewer-sim` (generalist persona) to perform exactly this test.
+## Inputs
 
-## Procedure
+Read the main statements and constructions, the relevant prior work, and the
+existing introduction. Use the current notation and the overview references and
+presentation choices in the project's writing plan. The overview can be part of
+the introduction or a separate section; use the manuscript's structure unless a
+change improves understanding.
 
-1. **List the prior routes** from `LITERATURE.md` (usually 2, sometimes 3). For each
-   paper in each route write: its key identity/formula, its cost, and the one
-   factual thing it leaves open. Verify each against the original paper.
-2. **Find the common object.** Phrase all routes as acting on the same mathematical
-   object or optimising the same objective (Eq. (1) of the introduction). If no common
-   object exists, the "unification" story is forced; tell the human author and
-   consider a different framing (e.g. "two orthogonal improvements that compose",
-   supported by a measured composition).
-3. **Reduce to questions.** "Whether the routes compose reduces to two questions:
-   (i) ... (ii) ...". Questions must be precise enough that a theorem answers them.
-4. **One Insight per question.** Heading = declarative sentence stating the answer.
-   Body: observation → reformulation → key formula (copied from the body theorem) →
-   conclusion → why the boundary case is tight or where it fails.
-5. **Figure.** A grid/axis diagram (prior works as corners/points, ours as the new
-   region) or a data-flow diagram of the new algorithm. Ask `figure-artist` for it;
-   caption = one sentence stating placement.
-6. **Composition paragraph** with the combined identity and cost.
-7. **Optional scope extender.** One paragraph showing the technique applies to a
-   neighbouring scheme, quantified by formula only (cheap, raises significance). Mark
-   it clearly as not implemented if so.
-8. **Consistency check**: `grep` each displayed formula in the body; string-compare.
+## Develop the explanation
 
-## Style rules
+- Identify the difficulty that actually motivates the technical step. Explain
+  the relevant prior approach only as far as needed to understand that difficulty.
+- State the observation, mechanism or proof idea that changes what can be done.
+  Connect it to the result and explain the assumptions it needs.
+- Order the explanation by its conceptual dependencies. Use questions, insight
+  headings, a worked example, formulas or a diagram when they clarify a step.
+  Their number and form follow the content.
+- Define the notation needed here locally. If substantial definitions are
+  required, consider a minimal background paragraph or a different placement.
+- Point to the precise statements or algorithms that develop the idea. A
+  simplified formula is acceptable when its simplification and scope are clear.
 
-- Describe prior work per paper and mathematically; do not write a tutorial with
-  "Why X is needed / Where the cost goes" headings.
-- Use "Suppose ..." to introduce hypotheses before derivations.
-- For density/asymptotic results: "asymptotic density ..., certified per instance".
-- No new claims that the body does not prove; no numbers that the experiments section
-  does not contain.
-- Keep limitations as short remarks at the end of the relevant insight, not in the
-  contribution list.
+## Check
 
-## Output
+Can a reader trace the stated obstacle through the proposed idea to a supported
+result? Are the conditions stated before they are used? Does the overview agree
+with the body without repeating the entire related-work discussion or proof?
+An intuitive explanation should not upgrade a conjecture, heuristic or partial
+result to a theorem.
 
-`paper/sections/overview.tex` (or inside `intro.tex`), figure request in
-`paper/figs/REQUESTS.md`.
-
-Examples: `skills/paper-playbook/sections/05_technique_overview.md`,
-`skills/paper-playbook/examples/toy_overview_and_related.md`.
+Deliver a complete overview in its existing source location. Request a figure
+only if there is a concrete relation or process that it would help explain.
+See [the section guide](../paper-playbook/sections/05_technique_overview.md).

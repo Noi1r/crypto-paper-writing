@@ -1,11 +1,11 @@
 ---
 name: paper-figures
-description: Produce publication-quality figures for a cryptography paper in the house style (LNCS/ACM/IEEE sizes, Computer Modern or Times fonts, vector PDF, colour-blind-safe palette), starting from the pattern catalog and templates in figures/. Use when a paper needs a plot, a results table or a TikZ diagram, or when auditing existing figures before submission.
+description: Produce publication-quality figures for a cryptography paper in the house style (LNCS/ACM/IEEE sizes, Computer Modern or Times fonts, vector PDF, colour-blind-safe palette), starting from the pattern catalog and templates in .paper-writing/figures/. Use when a paper needs a plot, a results table or a TikZ diagram, or when auditing existing figures before submission.
 ---
 # paper-figures
 
 Make every figure **at final size, in vector, from logged data, with a stated
-take-away**. The toolkit lives in `figures/`: style sheets, `palette.py`,
+take-away**. The toolkit lives in `.paper-writing/figures/`: style sheets, `palette.py`,
 16 matplotlib templates, 5 TikZ templates and `PATTERNS.md`.
 
 ## When to use
@@ -18,7 +18,7 @@ take-away**. The toolkit lives in `figures/`: style sheets, `palette.py`,
 1. **State the claim first.** Write the one sentence the figure must prove.
    It becomes the first sentence of the caption. If no claim exists, the
    answer is probably a table (C16) or no figure at all.
-2. **Pick the pattern** from `figures/PATTERNS.md`:
+2. **Pick the pattern** from `.paper-writing/figures/PATTERNS.md`:
    * ratio vs. a reference → C1
    * where the time goes → C2
    * asymptotics → C3
@@ -33,9 +33,16 @@ take-away**. The toolkit lives in `figures/`: style sheets, `palette.py`,
    * linear-transform structure → C13
    * a speed-up claim a sceptic may doubt → add C15
    * a protocol or pipeline → D1 or D2
-3. **Copy the template** (`figures/templates/pNN_*.py` or `tikz/*.tex`) into
+3. **Copy the template** (`.paper-writing/figures/templates/pNN_*.py` or `tikz/*.tex`) into
    the project's `paper/figs/src/`. Replace the synthetic arrays with loaders
    that read `results/*.csv|json`. Never type numbers by hand.
+   The templates' imports are relative to their original location. In a copied
+   Python script under `paper/figs/src/`, set `PROJECT = pathlib.Path(__file__).resolve().parents[3]`
+   and `ROOT = PROJECT / ".paper-writing" / "figures"` before importing `palette`.
+   Set both output defaults (`make(..., outdir=...)` and `--out`) to
+   `PROJECT / "paper" / "figs"`. For TikZ, make the toolkit's
+   `figures/templates/tikz/crypto-tikz.sty` available through `TEXINPUTS` or copy
+   that style alongside the figure source.
 4. **Size and font by venue.** Call `P.figure(venue, width="column"|"full"|fraction, aspect=...)`.
    * LNCS: 4.80 in (12.2 cm), Computer Modern.
    * ACM: 3.33 / 7.00 in, Libertine or STIX.
@@ -66,16 +73,16 @@ take-away**. The toolkit lives in `figures/`: style sheets, `palette.py`,
 - [ ] Final size, and 7–8 pt text that matches the caption font family.
 - [ ] One y-axis, with units in both axis labels.
 - [ ] Ours is blue, baselines are grey, and every series has a marker or dash.
-- [ ] Readable in greyscale and by colour-blind readers. The palette passes `python3 figures/style/palette.py`.
+- [ ] Readable in greyscale and by colour-blind readers. The palette passes `python3 .paper-writing/figures/style/palette.py`.
 - [ ] No pies, no 3-D, no rainbow colormaps, no coloured plot backgrounds, no titles inside the axes that duplicate the caption.
 - [ ] Every number traces to EVIDENCE, and synthetic or toy content is labelled as such.
 - [ ] The caption's first sentence is the take-away, and it defines all abbreviations.
 - [ ] Tables use booktabs, mark the best value in bold, and use consistent decimals.
 
 ## Tools
-* `figures/style/palette.py`: `use`, `figure`, `size`, `line_style`, `baseline_style`, `direct_label`, `save`, `check_palette`.
-* `figures/templates/run_all.py` renders every template, which is useful as a smoke test after style edits.
-* `make -C figures/templates/tikz` builds the TikZ diagrams. `crypto-tikz.sty` can be `\usepackage`d in a paper.
+* `.paper-writing/figures/style/palette.py`: `use`, `figure`, `size`, `line_style`, `baseline_style`, `direct_label`, `save`, `check_palette`.
+* `.paper-writing/figures/templates/run_all.py` renders every template, which is useful as a smoke test after style edits.
+* `make -C .paper-writing/figures/templates/tikz` builds the TikZ diagrams. `crypto-tikz.sty` can be `\usepackage`d in a paper.
 
 ## Anti-patterns seen in published crypto papers (in the harvested corpus)
 * Pie charts used for stage breakdowns. Use C2 instead.

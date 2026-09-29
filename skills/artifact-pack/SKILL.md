@@ -5,7 +5,7 @@ description: Use when preparing supplementary code/data for review (anonymous) o
 
 # Artifact pack
 
-Template: `templates/README_ARTIFACT.md` (in this skill directory).
+Template: `templates/README_ARTIFACT.md` (relative to this skill directory).
 
 ## Goals (map to typical badges)
 

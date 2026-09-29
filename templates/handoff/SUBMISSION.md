@@ -27,15 +27,16 @@
 
 ## C. Content consistency
 - [ ] 0 undefined references / citations; no `<<` placeholders; no `\todo`
-- [ ] every printed number matched to EVIDENCE (cross-check report: <n> numbers, 0 unmatched)
-- [ ] abstract ↔ contributions ↔ conclusion: same numbers, order, framework name
-- [ ] overview formulas string-identical to body statements
+- [ ] source audit completed with no errors; record the command and report
+- [ ] separately review table-heading units, macro-generated and graphic numbers, derived computations, and each number's claim scope against its evidence
+- [ ] abstract, contributions and any conclusion agree in claim scope, terminology and repeated numbers
+- [ ] overview formulas agree with the body; any simplifications are explicit
 - [ ] scope sentences match the security/parameter tables
 - [ ] every contribution maps to a CLAIMS row with status survived/weakened
-- [ ] body self-contained without the appendix
+- [ ] main text explains the principal results, assumptions and ideas, with accessible proof pointers and appendix placement allowed by the venue
 
 ## D. References
-- [ ] every entry verified by lit-scout (DOI / ePrint page); published versions preferred
+- [ ] every entry verified by cpw-lit (DOI / ePrint page); published versions preferred
 - [ ] acronyms braced; no publisher-export clutter; `--` page ranges
 - [ ] bibliography count and order checked after the final compile
 

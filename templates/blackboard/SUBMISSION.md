@@ -1,1 +1,1 @@
-# SUBMISSION — see templates/handoff/SUBMISSION.md for the full checklist (owner: `submission-rebuttal`)
+# SUBMISSION — see .paper-writing/templates/handoff/SUBMISSION.md for the full checklist (owner: `cpw-submit`)
