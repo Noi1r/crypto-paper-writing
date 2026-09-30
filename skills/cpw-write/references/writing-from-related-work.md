@@ -78,11 +78,13 @@ Include the selected papers and sections, the decisions they informed, and the
 planned outline. A separate style profile or additional planning file is not
 required. Stop expanding the reference set once it supports the needed decisions.
 
-When drafting is requested, begin with a key passage, such as the introduction or
-technical overview, and use the author's feedback to refine the plan as writing
-proceeds. Preserve explicit author preferences and clear conventions in an
-existing manuscript. Paragraph counts, terminology and rhetorical moves should
-fit the current content.
+When drafting is requested, continue with
+[drafting from research materials](drafting-from-materials.md): turn the supported
+main argument into an explanation sequence and complete prose. Choose a starting
+unit that resolves an important writing uncertainty, using author feedback at
+the requested pace. A request for a complete draft should proceed beyond the
+outline. Preserve explicit author preferences and clear conventions in an
+existing manuscript; paragraph counts and rhetorical moves follow the content.
 
 ## Reuse the decisions
 

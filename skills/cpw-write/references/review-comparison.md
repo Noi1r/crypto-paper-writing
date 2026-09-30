@@ -5,6 +5,11 @@ proposed manuscript revisions later. A booklet pairs the original and proposed
 passages with stable identifiers and reasons, so the author can discuss or select
 changes individually.
 
+When starting from research notes without an existing manuscript passage, use
+the [first-draft discussion mode](drafting-from-materials.md#a-first-draft-for-later-discussion).
+Label the new prose as a draft. An actual draft can become the baseline for a
+later comparison; source notes should not be presented as an original manuscript.
+
 ## When to offer it
 
 Complete the requested review and present its main findings first. When several

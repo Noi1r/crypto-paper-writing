@@ -27,6 +27,9 @@ For a new paper or major reorganization, establish the actual results, study
 suitable writing references and propose an outline suited to the work. Keep
 decisions in existing project notes or `STATE.md` when used. Technical proximity
 and usefulness as a writing example are separate considerations.
+For a first draft from notes or results, use
+[drafting from research materials](references/drafting-from-materials.md) to
+develop the main argument, explanation sequence and complete requested prose.
 
 ## Read only the guidance needed now
 
@@ -39,6 +42,7 @@ decision. Do not load every chapter for a local revision.
 | Paragraph or section polishing, translation, iterative revision | [Collaborative polishing](references/collaborative-polishing.md) |
 | A batch of proposed revisions for later discussion | [Paragraph comparison booklets](references/review-comparison.md) |
 | New paper or substantial reorganization | [Writing from relevant papers](references/writing-from-related-work.md), then [overall structure](references/sections/00_overall_structure.md) |
+| First manuscript draft or a new section from research notes and results | [Drafting from materials](references/drafting-from-materials.md), with the relevant chapter guide below |
 | Title | [Title](references/sections/01_title.md) |
 | Abstract | [Abstract](references/sections/02_abstract.md) |
 | Introduction or contributions | [Introduction](references/sections/03_introduction.md) and, when needed, [contributions](references/sections/04_contributions.md) |

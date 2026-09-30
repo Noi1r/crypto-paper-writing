@@ -7,6 +7,11 @@ Then propose an outline before drafting whole sections. State each section's
 purpose, available source material and conceptual dependencies, explaining the
 reference choices that informed the plan. For a local edit, use the existing plan.
 
+When proceeding from an outline to a first draft, use
+[drafting from materials](../drafting-from-materials.md) to identify the reader's
+starting knowledge, the point each passage needs to establish and the explanation
+connecting them. Expand the plan only where this helps produce the requested prose.
+
 ## Starting outline
 
 | Part | Reader's task | Placement and optionality |
