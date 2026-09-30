@@ -29,7 +29,9 @@ regardless of where the detailed related-work section appears.
 ## Choose what gets space
 
 Give the main contribution and its explanation enough space to be assessed.
-Compress repeated motivation, unused background and redundant table narration.
+Compress repetition or background that adds no explanatory role for the intended
+reader. Useful background can establish motivation or context as well as support
+later technical steps. Cut table narration that merely repeats visible entries.
 Do not assign fixed percentages to sections or require the conclusion to fill the
 last body page. Check the actual venue template, page limit and appendix policy
 before making layout decisions; do not silently alter required typography.

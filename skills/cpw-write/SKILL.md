@@ -58,9 +58,10 @@ about structure, detail and attribution; their facts and wording are not templat
 
 ## Shared writing decisions
 
-- Give each passage a useful role. Resolve misplaced content, missing premises
-  and duplication before fine word choices. Closely connected steps may share a
-  paragraph; there is no fixed paragraph, contribution or sentence count.
+- Reduce the reader's effort while preserving technical meaning, motivation and
+  necessary explanatory links. Resolve concrete placement or duplication problems
+  before fine word choices. Choose paragraph and sentence boundaries for the
+  argument; fewer words alone do not establish an improvement.
 - Use the subfield's established technical names and familiar words for ordinary
   explanation. Make the relevant objects, actions, conditions and reasoning
   connections clear. Introduce a symbol or intermediate quantity when its role
@@ -87,11 +88,13 @@ After a review or a batch of revision suggestions, offer a
 assess several passages later. Ask once unless already requested; finish the
 requested review without making this optional artifact a prerequisite.
 
-Return a complete revised unit and a brief explanation of substantive changes,
-unless the author asks for line edits or discussion only. Preserve citation keys,
-labels, LaTeX commands and the current revision-marking convention unless their
-change is authorized. Apply source edits when requested or already authorized;
-discussion of wording alone does not authorize file edits.
+When revising, return a complete revised unit and a brief explanation of
+substantive changes, unless the author asks for line edits or discussion only.
+A passage that already serves its purpose may remain unchanged, with a brief
+reason when useful. Preserve citation keys, labels, LaTeX commands and the current
+revision-marking convention unless their change is authorized. Apply source edits
+when requested or already authorized; discussion of wording alone does not
+authorize file edits.
 
 When the author changes the intended framing, reconsider the complete unit from
 that objective. Check the affected meaning, notation, citations, numbers and

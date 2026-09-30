@@ -11,6 +11,15 @@ message or state transitions, and outputs. For an algorithm, explain its goal,
 inputs, key steps and result. For a theorem, state the objects, assumptions and
 conclusion precisely before or alongside the argument that establishes it.
 
+When a construction modifies earlier schemes, explain enough of the inherited
+structure and algorithm steps for readers to locate and understand the changes.
+An introductory overview and a technical recap before the construction can serve
+different purposes. Choose the recap's detail and placement from the paper's
+dependencies and relevant writing references, independently of where literature
+comparisons appear. Assess overlap by each passage's explanatory role and level
+of detail; mentioning the same scheme in two places is not sufficient evidence
+of redundancy.
+
 For a verifier-facing component, make clear which values come from an accepted
 state, which are supplied by an untrusted party, what is recomputed and the exact
 acceptance condition. Explain why the checks establish the claimed relation.
@@ -42,6 +51,8 @@ are established.
 
 ## Check
 
-Can the reader determine exactly what is defined or executed? Does each claim
-have the assumptions and support it needs? Are the statements, notation and
-implementation scope consistent across the relevant parts of the paper?
+Can the reader determine exactly what is defined or executed? For a modification
+of an earlier scheme, can readers identify what is inherited and what changes
+without reconstructing an unstated baseline? Does each claim have the assumptions
+and support it needs? Are the statements, notation and implementation scope
+consistent across the relevant parts of the paper?

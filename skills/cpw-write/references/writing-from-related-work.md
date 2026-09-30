@@ -4,6 +4,16 @@ Use this workflow when starting a new paper or substantially reorganizing one.
 For a section edit or routine polishing, reuse the project's existing writing
 references and plan. Read further only when a concrete decision needs more context.
 
+## Check a structural edit against the field
+
+Before proposing to delete, substantially shorten or move prior-construction
+background on grounds of field convention or chapter placement, compare the
+corresponding sections of the established writing references. Check their level
+of detail and what the current paper's later construction needs. Reuse prior
+full-text readings when they answer this question; read further only for the
+unresolved point. Explain which reference sections support the recommendation
+and why their organization fits this paper.
+
 ## Start from this paper's results
 
 Identify the research question, established results, intended contribution and

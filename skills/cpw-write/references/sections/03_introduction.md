@@ -7,7 +7,10 @@ and what the paper contributes. Ground the positioning in the closest work.
 
 Start with the context readers need to understand the question. Describe the
 specific limitation, opportunity or missing understanding that motivates the
-work, using a primary source when making a claim about earlier results.
+work, using a primary source when making a claim about earlier results. Historical
+context and practical constraints may serve this motivation without becoming
+formal inputs later. Allow space for the steps that explain why the problem
+arises and why the chosen setting matters.
 
 Introduce the paper's contribution and the idea behind it. Explain why the result
 matters and under which conditions it holds. Contributions may be listed or

@@ -14,11 +14,27 @@ For a new paper or major restructuring, follow
 [writing from relevant papers](writing-from-related-work.md)
 to choose content coverage, organization and exposition. A local polishing task
 reuses that work without a fresh literature search. With no plan, work from the
-current passage and context using clear, direct prose.
+current passage and context using clear, direct prose. When a structural
+recommendation depends on field practice or chapter placement, use the
+[targeted field comparison](writing-from-related-work.md#check-a-structural-edit-against-the-field).
 
 Create a personal style profile only if explicitly requested; that separate
 workflow is in [author-style guidance](author-style.md). An existing
 `STYLE.md` can supply applicable adopted preferences but is not a prerequisite.
+
+## Match the extent of revision to the request
+
+Infer the intended extent from the author's request and the current collaboration.
+
+- For polishing, normally preserve content coverage, paragraph roles and the
+  progression of the argument while improving expression and local connections.
+- For shortening, use the stated length goal or identified repetition to choose
+  cuts. Preserve the steps readers need to understand the problem and reasoning.
+- For reorganization, identify the reading difficulty that moving, merging or
+  splitting material would resolve, and explain meaningful changes in emphasis.
+
+These defaults leave room for judgment. A polishing request can reveal a useful
+structural alternative; distinguish that option and its tradeoff from local edits.
 
 ## Use the field's language
 
@@ -69,9 +85,10 @@ requiring every paper to use the same sequence or headings.
 
 ## Revise for the passage's purpose
 
-- Give each paragraph a clear job in the argument. Remove repetition or move
-  material when it obscures that job. A useful summary can synthesize a tradeoff
-  rather than repeat individual results.
+- Give each paragraph a clear job in the argument. Judge repeated content by its
+  role in context: a necessary reminder or a new explanatory connection may
+  justify revisiting a point. Consolidate passages that repeat the same
+  explanation without adding a useful role. A summary can synthesize a tradeoff.
 - Check paragraph coherence even when every sentence is individually accurate.
   Each sentence should advance the argument and connect clearly to the preceding
   one. Merge or reorder sentences that repeat an idea or restart the explanation;
@@ -88,10 +105,16 @@ requiring every paper to use the same sequence or headings.
 
 ## Introduce detail when its purpose is clear
 
-Choose background by its use in the later argument. When the paper replaces one
-component of a larger construction, explain the interfaces, relevant behavior
-and assumptions needed for that replacement. Add implementation or serialization
-detail when an algorithm, security argument or cost claim depends on it.
+Choose background by what it helps the intended reader understand at that point
+in the paper. In an introduction, historical context, practical constraints and
+motivation can explain why the question matters even when no later formula uses
+them. In preliminaries, emphasize the definitions, models and tools needed for
+the technical argument.
+
+When the paper replaces one component of a larger construction, explain the
+interfaces, relevant behavior and assumptions needed for that replacement. Add
+implementation or serialization detail when an algorithm, security argument or
+cost claim depends on it.
 
 Introduce an intermediate count, auxiliary set or acceleration step alongside
 the question it answers. If its purpose belongs to a later part of the argument,
@@ -159,13 +182,20 @@ For several proposed revisions that the author may review later, offer the
 passages with reasons and explicit decisions. Use it after the requested review
 or when asked; ordinary live paragraph-by-paragraph discussion can stay in chat.
 
-Return the complete revised passage and a brief rationale for substantive edits.
-Reread it once for field-appropriate wording and once for missing explanatory
-links: can the intended reader identify the object, action, conditions and main
-point without reconstructing unstated dependencies? Check affected meanings,
-references and numbers. For source edits, build or audit when the changed
-material warrants it. A local polishing request does not require
-an unrelated full-paper review, new experiment or stylistic rewrite elsewhere.
+Assess whether a revision offers a concrete benefit; keeping a passage that
+already works is a valid outcome. For substantial cuts or reorganization, explain
+the reading problem or length constraint, the expected benefit and any meaningful
+loss of context or emphasis. An action such as "combine the background" describes
+the edit but does not explain its value. Keep the rationale proportionate to the
+change; routine wording edits need only a brief explanation.
+
+Return the complete revised passage when revising. Reread it for field-appropriate
+wording and missing explanatory links. For substantial cuts, compare it with the
+original: can readers still follow the motivation, necessary causal steps and
+conditions without reconstructing removed explanations? Check affected meanings,
+references and numbers. For source edits, build or audit when the changed material
+warrants it. A local polishing request does not require an unrelated full-paper
+review, new experiment or stylistic rewrite elsewhere.
 
 For paragraph-by-paragraph work, deliver the requested unit and wait for the
 author's next direction. Reuse accepted terminology and decisions. If the author

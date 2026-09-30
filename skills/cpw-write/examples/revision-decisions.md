@@ -15,6 +15,37 @@ keep that requirement where it prepares the contribution.
 The decision concerns the paragraphs' content. Neither heading is universally
 required or forbidden.
 
+## Keep background that explains different parts of the problem
+
+Suppose a synthetic paper studies private collection of aggregate measurements
+from intermittently connected participants. Its introduction contains:
+
+> Aggregate measurements help an operator plan shared resources without needing
+> every participant's individual reading. A private collection protocol aims to
+> provide the group result while limiting what the operator learns about any one
+> contribution.
+
+> Participants may disconnect after sending their measurements. A protocol that
+> requires everyone to remain online for a final round can leave an entire batch
+> unfinished. This availability constraint motivates collection protocols that
+> can complete when some participants are absent.
+
+A compressed alternative says:
+
+> This work studies private collection of aggregate measurements for networks
+> with intermittent participants.
+
+The alternative is accurate but drops the reasons for aggregation and for the
+availability requirement. The original paragraphs answer different questions:
+why the group result is useful, and why a final interactive round poses a problem.
+For a polishing request, keep both paragraphs and improve local wording only
+where there is a concrete benefit. Leaving them unchanged is also appropriate.
+
+If the author needs a shorter introduction, propose cuts against that constraint
+while preserving those explanatory connections; two paragraphs are not mandatory.
+This differs from the preceding case, where adjacent passages repeat the same
+objective without adding a requirement or reason.
+
 ## Explain a quantity before introducing its optimization
 
 Premise: a toy computation sums contributions from candidates; candidates in
