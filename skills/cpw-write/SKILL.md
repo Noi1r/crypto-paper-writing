@@ -66,6 +66,12 @@ about structure, detail and attribution; their facts and wording are not templat
   necessary explanatory links. Resolve concrete placement or duplication problems
   before fine word choices. Choose paragraph and sentence boundaries for the
   argument; fewer words alone do not establish an improvement.
+- Judge coherence in the passage's intended location, using the context the
+  reader has already received. A body excerpt can rely on earlier method
+  overviews, definitions and background. Add only the reminders and local
+  reasoning links the reader needs here; ensure referents, conditions and
+  shifts of object or scope remain clear. Supply the necessary context when
+  the requested deliverable must stand alone.
 - Use the subfield's established technical names and familiar words for ordinary
   explanation. Make the relevant objects, actions, conditions and reasoning
   connections clear. Introduce a symbol or intermediate quantity when its role

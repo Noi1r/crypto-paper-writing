@@ -14,6 +14,9 @@ and the support needed to assess its principal claims; state the scope you used.
 Ask a focused question only when ambiguity would materially change the work.
 
 Read the relevant manuscript and enough surrounding material to assess it.
+For expression and structure reviews, apply the
+[shared context rule](../cpw-write/SKILL.md#shared-writing-decisions) when deciding
+whether a passage needs more introduction or a transition.
 Use `STATE.md`, `CLAIMS.md`, `EVIDENCE.md`, `LITERATURE.md` and existing review
 notes when present and relevant, following their actual paths. Pasted text or an
 existing manuscript can be reviewed without creating these records or installing
