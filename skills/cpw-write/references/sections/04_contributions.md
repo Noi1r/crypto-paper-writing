@@ -1,41 +1,47 @@
 # Contributions
 
-Make the new results and their importance easy to identify. Use the supported
-claims and the actual technical content to decide what belongs here.
+Make the paper's advances and their technical substance immediately scannable.
+Ground every item in the manuscript's proved theorems, constructions, and
+verified evaluation records.
 
-## Select and order
+## State the mechanism ("how"), not just the outcome ("that")
 
-Group related results when they form one contribution. Separate results when
-their significance or supporting arguments are distinct. Choose an order that
-highlights the central result or makes dependencies easy to follow; preserve a
-clear existing order. The number of items follows the work.
+Reviewers discount contribution bullets that merely assert quality (*"We propose
+a novel protocol and prove its security; experiments show high efficiency"*).
+Structure each contribution so the reader sees both **the technical mechanism**
+and **the conditioned result**:
 
-For each contribution, explain what is established, what is new relative to the
-relevant work, and any condition needed to interpret it. A precise limitation is
-part of a truthful statement and may belong in the contribution itself.
+- **Analytical or theoretical contribution:** Name the structural property,
+  dependency, or reduction technique that yields the result, followed by the
+  formal statement and model (*"We introduce a recurrence that tracks repeated
+  item selection across queries (Theorem 2), tightening the failure bound from
+  $O(q^2/N)$ to $O(q/N)$ in the standard model"*).
+- **Construction or protocol contribution:** State what component or interaction
+  changes and what asymptotic or concrete property follows (*"We replace per-gate
+  key switching with a hoisted automorphism over packed ciphertexts (Section 4),
+  reducing rotation keys from $O(d)$ to $O(\sqrt{d})$ without increasing
+  multiplicative depth"*).
+- **Implementation and evaluation contribution:** Specify what was built, the
+  comparison baseline, the headline trade-off, and the regime where it holds,
+  including regimes where the method offers no gain.
 
-Make an analytical or construction contribution understandable through the
-technical obstacle it addresses. Explain which information a method tracks,
-which dependency it handles or which constraint it exploits, as supported by
-the work. Phrases such as "tighter analysis" or "more efficient encoding" need
-the reason that distinguishes the contribution.
+## Group and order for clarity
 
-When methods are complementary, explain their different roles: for example,
-one may give a cheap bound by relaxing a dependency while another counts that
-dependency at higher cost. State the actual scope; a stronger bound, a better
-selected parameter point and a construction advantage are different claims.
-
-Use theorems, algorithms, tables or section references when they help readers
-locate the formal statement or evidence. State the substantive result in words
-so that a reference number does not have to carry the explanation.
-
-Choose prose, bullets or titled paragraphs for readability. Report quantitative
-results where they support the contribution, with their actual metric and scope.
-Select verbs according to the evidence: a measurement, observation and proof make
-different kinds of claim.
+- Merge steps that form a single logical advance; separate results that rely on
+  distinct techniques or different kinds of evidence (e.g., a formal proof vs. an
+  empirical benchmark).
+- Include explicit pointers to the supporting theorems, algorithms, sections, or
+  tables (`Theorem 1`, `Algorithm 2`, `Table 3`), while stating the result clearly
+  in words so the reader does not have to flip pages to know what was achieved.
+- Match the verb to the evidence: use `prove` or `establish` for theorems,
+  `derive` or `bound` for analytical models, and `measure` or `evaluate` for
+  benchmarks.
+- State necessary boundary conditions directly inside the contribution item whenever
+  omitting them would overstate the claim.
 
 ## Check
 
-Does each item identify an actual result? Are its assumptions and comparison
-conditions clear? Do references lead to the promised support? Are several items
-merely repeating the same advance in different words?
+- Does each contribution state a concrete mechanism and a falsifiable outcome?
+- Are all assumptions, security models, and comparison baselines explicit?
+- Do all theorem, section, and table pointers resolve to the exact promised support?
+- Have you eliminated redundant bullets that restate the same result in different words?

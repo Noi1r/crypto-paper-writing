@@ -1,58 +1,44 @@
 # Main technical content
 
-Present the actual protocol, construction, algorithm or theoretical result in an
-order that makes its dependencies clear. Open each section by identifying what it
-delivers and why the reader needs it.
+Present the protocol, construction, algorithm, or theorem development in an
+order that respects logical dependencies. Open each section or subsection by
+stating in one or two sentences what component it builds and how that component
+fits into the overall architecture.
 
-## Choose the development
+## Structure the exposition for clarity
 
-For a protocol, explain the intended task or relation, participants and inputs,
-message or state transitions, and outputs. For an algorithm, explain its goal,
-inputs, key steps and result. For a theorem, state the objects, assumptions and
-conclusion precisely before or alongside the argument that establishes it.
-
-When a construction modifies earlier schemes, explain enough of the inherited
-structure and algorithm steps for readers to locate and understand the changes.
-An introductory overview and a technical recap before the construction can serve
-different purposes. Choose the recap's detail and placement from the paper's
-dependencies and relevant writing references, independently of where literature
-comparisons appear. Assess overlap by each passage's explanatory role and level
-of detail; mentioning the same scheme in two places is not sufficient evidence
-of redundancy.
-
-For a verifier-facing component, make clear which values come from an accepted
-state, which are supplied by an untrusted party, what is recomputed and the exact
-acceptance condition. Explain why the checks establish the claimed relation.
-If a check is deferred, state what is bound now and what is verified later.
-Candidate, published and accepted states may have different guarantees; use
-the distinctions relevant to the actual protocol.
-
-The formal statement may precede a construction when it helps orient readers,
-or follow definitions that are needed to understand it. Place correctness,
-security or cost analysis with the relevant component or in a dedicated section
-according to the dependency and length of the argument.
-
-Provide the rationale actually supporting a design choice: a theorem, analytic
-tradeoff, experiment, search result or explicit design constraint. Do not imply
-that an enumeration or optimality argument was performed when it was not.
-
-Use algorithms, examples and diagrams when they expose a step more clearly than
-prose alone. Explain all hypotheses and maintain the distinction between
-sufficient and necessary conditions. Identify the metric and regime of each cost
-claim; several metrics may be needed to express a real tradeoff.
-
-Introduce acceleration machinery after the quantity being computed and its
-purpose are clear. Show the invariant, algorithmic update or verifier check that
-advances the explanation; refer back to previously defined hashes, encodings or
-data structures. Count costs for the operation actually described, including
-output size or data access when those are part of the claimed total. Keep a path
-length parameter explicit until the assumptions giving its asymptotic bound
-are established.
+- **Specify inputs, state, and outputs explicitly:** For a protocol, identify the
+  participants, public parameters, private inputs, round-by-round message flow,
+  and acceptance/output rules. For an algorithm, state its goal, inputs, core
+  loop or algebraic steps, and output guarantee. For a theorem-led section, state
+  all objects, hypotheses, and the exact conclusion before or alongside the proof.
+- **Separate inherited machinery from your modification:** When extending or
+  modifying an existing scheme, briefly recall the baseline steps the reader
+  needs and explicitly mark where your construction changes the representation,
+  message flow, or verification check. Do not force the reader to diff your
+  protocol against an external paper from memory.
+- **Make trust and verification boundaries unmistakable:** In verifier-facing
+  or interactive steps, state clearly which values come from a trusted setup or
+  accepted state, which values arrive from an untrusted party, what the verifier
+  recomputes locally, and what exact equation triggers acceptance or abort. If a
+  check is deferred or batched, state what is committed now and what is checked
+  later.
+- **Introduce optimization machinery after the base computation:** First state
+  *what* quantity is being computed and *why*; only then introduce the algebraic
+  packing, hoisting, or amortization trick that speeds it up. Show the key
+  invariant or update equation that makes the optimization valid.
+- **Ground design rationales in actual support:** Justify parameter choices or
+  protocol steps using the theorem, analytical trade-off, search result, or
+  system constraint that actually determined them—never imply an exhaustive
+  optimality proof if the choice was heuristic or pragmatic.
+- **Count complete costs:** When stating complexity or communication bounds in a
+  technical section, specify the exact metric and regime, including output size,
+  evaluation keys, or auxiliary transcripts when they belong to the step.
 
 ## Check
 
-Can the reader determine exactly what is defined or executed? For a modification
-of an earlier scheme, can readers identify what is inherited and what changes
-without reconstructing an unstated baseline? Does each claim have the assumptions
-and support it needs? Are the statements, notation and implementation scope
-consistent across the relevant parts of the paper?
+- Could an expert implement or verify the construction from your specification
+  without guessing omitted indices, domains, or abort conditions?
+- Is the boundary between recalled baseline steps and new technical steps explicit?
+- Are notation, parameter constraints, and claim strength consistent between the
+  prose, protocol boxes, and formal theorems?

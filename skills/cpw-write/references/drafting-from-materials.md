@@ -1,145 +1,128 @@
 # Draft from research materials
 
-Use this guide to turn research notes, constructions, established statements and
-results into a first manuscript draft or a new section. It develops the exposition
-of existing research. Follow the shared technical and source-edit boundaries in
-[cpw-write](../SKILL.md).
+Use this guide to turn raw research notes, formal statements, constructions, and
+experimental records into a clear first draft or new manuscript section. Follow
+the technical and source-edit boundaries in [cpw-write](../SKILL.md).
 
-Enter at the stage the work has reached. Reuse an accepted main argument, outline,
-terminology and writing references. For a new paper whose organization is still
-open, use [writing from relevant papers](writing-from-related-work.md) to inform
-the choices below. Read additional sources only for an unresolved writing or
-positioning decision. No new ledger, style profile or planning file is required.
+Start from the current state of the project. Reuse any main argument, outline,
+terminology, and reference analysis already recorded in `STATE.md` or project
+notes. If the paper's overall organization is still open, consult
+[writing from relevant papers](writing-from-related-work.md) first. You do not
+need to initialize new ledgers or style files to begin drafting.
 
-## Find the argument in the available material
+## Distill the core argument from the raw material
 
-Identify the question, the intended reader, the actual results and their support.
-Read the relevant author notes, formal statements, construction, data and prior
-work. Establish which details are fixed, which are author choices and which remain
-unresolved. Ask for a missing fact when it would change the main claim or method
-description; continue with supported material that does not depend on that fact.
+Read the author's notes, theorem statements, protocol descriptions, and data to
+identify four anchors:
 
-Propose a short account of the paper's main argument in the conversation or
-existing notes. As applicable, explain the setting, the specific question left by
-the relevant work, the obstacle, the observation or mechanism that addresses it,
-and the result established under the stated conditions. Use actual objects and
-actions. Do not fill every element mechanically when the contribution has a
-different shape or the supplied material does not establish a literature gap.
+1. **The specific problem and setting:** What task is being solved, under what
+   model or constraints, and where does the closest prior work leave off?
+2. **The real technical obstacle:** Why do straightforward approaches or existing
+   techniques fail, blow up in cost, or require an undesirable assumption here?
+3. **The key observation or mechanism:** What structural property, algebraic
+   relation, or protocol change overcomes that obstacle—and *how* does it work?
+4. **The supported result and its boundary:** What theorem, asymptotic bound, or
+   measured tradeoff follows, and under which exact assumptions or regimes?
 
-When several results are available, identify their relationship. A construction,
-an analysis enabling parameter selection and a concrete comparison may support
-one central contribution. Other results may deserve independent treatment.
-Explain the recommended emphasis from the author's objective and the strength
-and scope of the available support. A result's largest percentage or strongest
-adjective alone does not determine its role.
+State this storyline concisely in concrete terms before drafting long sections.
+When a project has multiple results (for example, a new construction, a tighter
+noise analysis that enables smaller parameters, and an implementation), clarify
+how they fit together—whether they combine to support one headline contribution
+or represent distinct results. Anchor the emphasis in what the evidence actually
+proves rather than whichever number looks largest out of context.
 
-Give a preferred framing. Add an alternative only when it changes a meaningful
-choice, such as the intended audience or the contribution the paper can support.
-Keep this reasoning short enough to move on to writing. If the author has already
-chosen the framing, develop it and flag a concrete support mismatch if one exists.
+Present one clear recommended framing. Offer an alternative framing only when
+there is a genuine strategic choice (such as pitching to a theory vs. systems
+audience). Ask the author only for missing facts that would alter the main claim
+or mechanism; if a secondary benchmark is still running, draft the supported
+construction and analysis first and mark the missing number explicitly.
 
-## Turn the outline into an explanation
+## Turn the outline into a reader-centered explanation sequence
 
-Use the [overall structure guide](sections/00_overall_structure.md) for chapter
-placement. For the parts whose explanation is still uncertain, work out:
+Use [overall structure](sections/00_overall_structure.md) for section placement.
+Before drafting a technically dense section, map out the reader's path in a few
+lines:
 
-- what the reader already knows on entering the passage;
-- what the reader should understand on leaving it;
-- which facts, definitions, observations or results bridge those points;
-- where the supplied material supports those steps.
+- **Entry state:** What definitions, notation, and intuition does the reader
+  already have when entering this section?
+- **Exit goal:** What exact statement, construction, or takeaway must the reader
+  understand by the end of the section?
+- **Bridging steps:** Which intermediate observations, definitions, or cost
+  comparisons connect the entry state to the exit goal, in dependency order?
 
-A short description of the sequence is usually enough. Expand to paragraph
-planning when it reveals a missing connection or resolves an organizational
-choice; do not require a worksheet for every paragraph. Name the actual point of
-each step rather than listing only headings such as "background" and "method."
+Name the substantive point of each step (*"Show why independent per-query setup
+repeats identical work when $K$ is fixed"* $\to$ *"Define the batched index
+reuse rule and state why verification soundness is preserved"*) rather than
+writing generic placeholders like *"Background"* and *"Method"*.
 
-Order the explanation by its conceptual dependencies. For example, establish the
-computation that is repeated and the condition that permits reuse before
-introducing a batching optimization. A helper quantity should answer a question
-the reader can already recognize. Introduce notation where it clarifies that
-relation, using the manuscript's established names.
-
-An introduction may need context and a causal explanation of why the setting
-matters. A technical section may need enough of an inherited construction for
-readers to locate the change. Select that detail by the passage's purpose and
-audience. A brief early overview and a detailed later account can serve distinct
-roles. Decide where a full definition belongs and where a short reminder suffices.
+Order the prose so every definition or helper quantity appears right when the
+reader can see the question it answers. Establish what is being computed before
+introducing the algebraic or systems machinery that accelerates it. Decide where
+a concept gets its primary definition and where a one-line reminder or `\ref`
+suffices.
 
 ## Write complete prose early
 
-Choose the first unit according to the main writing uncertainty. An introduction
-can help settle positioning and motivation; a technical overview can establish
-the explanation of the main idea; a construction passage can clarify how much
-inherited machinery the reader needs. The order follows the work and request.
+Pick the starting section that best resolves the main writing uncertainty:
 
-Produce a complete requested unit, with the necessary transitions and conditions.
-Use the relevant chapter guide and the shared
-[field-language guidance](field-language-and-clarity.md) while drafting.
-Planning notes should support the prose rather than replace a requested draft.
+- Draft the **Introduction** or **Contributions** first when positioning and
+  claim scope need alignment.
+- Draft the **Technical Overview** first when the hardest task is explaining how
+  the core mechanism works without drowning in notation.
+- Draft the **Main Construction** first when the boundary between inherited
+  machinery and the paper's modification needs to be pinned down.
 
-Match the collaboration pace to the request:
+Deliver complete, readable prose with clear transitions and explicit conditions,
+applying the relevant section guide and [field language and clarity](field-language-and-clarity.md).
+Do not substitute bullet-point planning worksheets when the author asked for a
+drafted section.
 
-- For a requested outline or discussion, deliver that scope.
-- For stepwise drafting, write the agreed unit and use feedback before expanding.
-- For a complete first draft, continue through the requested material without
-  turning every section into an approval gate. Keep a short list of consequential
-  open choices or missing support for the author's later review.
+Adapt the pacing to the author's preference:
 
-Keep composition notes outside the manuscript prose. Where a missing result or
-reference prevents a supported sentence, make the gap explicit in the draft or
-accompanying notes as appropriate; do not substitute an invented result. An
-unresolved measurement need not prevent drafting a supported construction or
-analytical explanation.
+- **Stepwise collaboration:** Draft the agreed section or passage, incorporate
+  feedback on tone and depth, and carry those choices forward.
+- **Full-section or full-paper draft:** Write continuously through the supported
+  material without stopping for approval after every subsection, and collect the
+  few consequential open questions or missing citations in a concise note at the end.
 
-## Use feedback across the manuscript
+Never invent a placeholder citation, synthetic benchmark number, or unproved
+lemma to make a draft look complete; mark any material gap explicitly.
 
-Calibrate the main argument, explanatory depth, terminology and author voice from
-the author's response to actual prose. Apply the revision methods in
-[collaborative polishing](collaborative-polishing.md) to the units being discussed.
+## Propagate feedback across dependent sections
 
-Reuse accepted choices in later sections, including the level of background and
-the reasoning steps the author wants explained. These choices remain revisable.
-When feedback changes the main emphasis, update the affected units and their
-connections; for example, a revised contribution focus may affect the abstract,
-introduction, overview and interpretation of results. Check those dependencies
-without rewriting unrelated passages.
-
-Record a substantive decision briefly in the existing plan or notes when useful
-for continued work. Do not require repeated confirmation of a choice the author
-has already made.
+Use the author's edits and reactions to calibrate technical depth, background
+coverage, and voice. When feedback shifts a core claim or emphasis, trace the
+ripple effects across connected sections—for example, narrowing a claim in the
+evaluation may require updating the abstract, introduction, and contribution
+list so they state the exact same scope. Record settled terminology or framing
+choices briefly in `STATE.md` or existing notes so you never re-ask a decided
+question.
 
 ## A first draft for later discussion
 
-When asynchronous review would help, offer a version with stable section or
-passage identifiers, complete draft text, short explanations of consequential
-organization choices and the few decisions needing the author's judgment.
-Include competing versions only for meaningful alternatives.
+When preparing a draft for asynchronous review, organize it with stable section
+or passage identifiers, complete prose, brief notes on key structural choices,
+and the specific open questions that need the author's decision.
 
-There is no original manuscript passage to compare against when starting from
-notes. Label source notes as notes and the new text as a draft; never invent an
-"Original" passage. Once an actual first draft exists, it can serve as the baseline
-for an optional [comparison booklet](review-comparison.md). Use the requested
-format and existing source-edit authorization.
+When drafting from raw notes, there is no prior manuscript passage—label the
+author's inputs as source notes and your output as a draft (never fabricate an
+"Original" manuscript passage). Once a first draft exists, subsequent revisions
+can use a side-by-side [comparison booklet](review-comparison.md) if helpful.
 
 ## Check the resulting draft
 
-Assess the requested unit against the supplied material and reader's needs:
+Before returning the drafted unit, verify that:
 
-- The main point and necessary supporting information are present.
-- Readers can follow the motivation, mechanism and conditions without supplying
-  a missing explanatory step.
-- Definitions appear where they become useful, and related sections agree on
-  terminology and claim scope.
-- The prose preserves the evidence status of each result and introduces no
-  unsupported novelty, security, performance or causal claim.
-- The output is complete prose when prose was requested, at the requested scope.
+- **Mechanism over buzzwords:** The prose explains *how* the construction or
+  proof works and *why* the obstacle arises, rather than asserting that the
+  method is "novel" or "efficient."
+- **No silent jumps:** A reader at the target level can follow the motivation,
+  steps, and conditions without guessing unstated premises.
+- **Aligned scope and notation:** Symbols are defined before use, one term names
+  one object throughout, and claim boundaries match across sections.
+- **Strict evidence fidelity:** Proved statements, analytical models, local
+  measurements, and prior-work numbers remain clearly distinguished.
 
-When improving this workflow, try a representative unit from a sufficient set of
-materials and inspect these properties in the result. Keep author feedback and
-the resulting changes distinguishable from the skill's format checks; those
-checks alone establish no writing-quality improvement.
-
-See [the synthetic worked example](../examples/materials-to-draft.md) for the
-progression from unordered notes to a main argument, an explanation sequence,
-a complete draft and a revision responding to author feedback. Its subject and
-paragraph count are local to the example.
+See [the synthetic worked example](../examples/materials-to-draft.md) for an
+end-to-end illustration from unordered research notes to a first draft and a
+feedback-driven revision.

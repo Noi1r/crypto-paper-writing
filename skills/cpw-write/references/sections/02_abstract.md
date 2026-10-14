@@ -1,41 +1,52 @@
 # Abstract craft
 
-Read the current manuscript, supported contributions and relevant evidence.
-Check a supplied venue's actual abstract requirements when they affect the task.
-Use the project's writing plan and selected abstract references when available,
-alongside the author's instructions and clear conventions in the current draft.
+Draft or revise the abstract from the manuscript's established contributions,
+formal statements, and verified evidence. Check the target venue's abstract
+rules (word limits, plain-text portal constraints, or paragraph norms) whenever
+they apply.
 
-## Decide what the reader needs
+## Give the reader four essentials
 
-- Identify the specific problem and enough context to understand its importance.
-- Explain the key method or observation at the level needed to distinguish the
-  result. Introduce terminology only when it earns its space.
-- State the main established results: a theorem, construction, analysis,
-  measurement or a combination appropriate to this paper.
-- Keep the assumptions, comparison conditions or limitations needed to interpret
-  those results. Mention an artifact or formalization when it is material.
+An effective cryptography abstract lets a busy reviewer grasp the paper's core
+value in one pass:
 
-Arrange these elements so that the result is understandable. Paragraph and
-sentence counts depend on the content and venue requirements. A short outline
-can help with a new abstract; an existing clear abstract can be revised directly.
+1. **The problem and why it matters:** Name the concrete cryptographic setting or
+   task and the specific bottleneck, gap, or assumption limitation in prior work.
+   Avoid generic textbook openings (*"Cryptography is fundamental to modern
+   security..."*).
+2. **The key mechanism or insight:** State *what your approach does differently*
+   at a conceptual level (for example, replacing per-query degree checks with a
+   single batched linear combination, or reducing security to standard LWE via
+   a lossy mode). Define a new term in the abstract only if it is central to the
+   headline claim.
+3. **The main established results:** State the principal theorem, asymptotic
+   complexity, concrete cost, or measured performance with its exact metric and
+   baseline.
+4. **The qualifying scope:** Keep essential conditions attached to the result—the
+   security model (standard model vs. ROM, semi-honest vs. malicious), parameter
+   regime, or workload constraint—and note an open-source artifact or mechanized
+   proof when it materially strengthens the paper.
 
-## Check the draft
+Let the paper's content determine whether the abstract runs one paragraph or two.
+Lead directly into the problem or result without meta-phrases like *"In this
+paper, we first introduce... and then we discuss..."*.
 
-1. Match substantive claims to the body. Distinguish proofs, measured results,
-   estimates and values reported by prior work.
-2. For a numerical comparison, preserve the metric, baseline, tested scope and
-   units. Use the project's evidence links when present; otherwise keep a direct
-   source pointer with the supplied revision or existing notes.
-3. Check that the abstract and contributions agree in meaning; their order and
-   level of detail may differ.
-4. Replace vague claims with the specific result only when that result is
-   supported. Do not invent a quantitative claim to make a sentence stronger.
-5. Check that specialized terms and citations are understandable in the abstract
-   and comply with the target venue's requirements.
+## Verify before finalizing
 
-Deliver a complete, self-contained abstract following the source-edit
-authorization in the writing entrypoint. If the author asks to follow a prior
-abstract, adapt its information order and level of detail while checking every
-technical statement against the current paper. Produce a plain-text submission
-version when requested or when preparing the submission form.
-See the [synthetic examples](../../examples/toy_abstracts.md).
+1. **Exact alignment with the body:** Every claim and number in the abstract must
+   appear with the same scope in the introduction, theorems, or evaluation tables.
+   Keep proved bounds, analytical cost counts, and empirical timings distinct.
+2. **Traceable comparisons:** When stating a speedup or size reduction, preserve
+   the metric, baseline, and tested regime (for example, *"1.4–1.8× higher
+   throughput than [Baseline] across eight batch workloads, with no improvement
+   for single-request latency"*). Link numbers to `EVIDENCE.md` when used.
+3. **Mechanisms over adjectives:** Replace empty intensifiers (*"highly
+   efficient"*, *"strong security guarantees"*) with the actual bound, assumption,
+   or measured figure—never invent a number to make a sentence sound stronger.
+4. **Self-contained readability:** Avoid unexplained symbols, internal section
+   numbers, or raw BibTeX `\cite{...}` keys unless the venue style explicitly uses
+   citations in the abstract. Produce a clean plain-text version alongside the
+   LaTeX version when preparing submission metadata.
+
+See [synthetic abstract examples](../../examples/toy_abstracts.md) for how
+theoretical, empirical, and protocol tradeoffs shape abstract structure.

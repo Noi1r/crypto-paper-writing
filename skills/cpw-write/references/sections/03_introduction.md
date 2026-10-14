@@ -1,41 +1,42 @@
 # Introduction
 
-Explain why the problem matters, what remains unresolved in the relevant setting,
-and what the paper contributes. Ground the positioning in the closest work.
+Write the introduction so a cryptographer outside your immediate niche can see
+why the problem matters, why existing approaches fall short in the target setting,
+and how your contributions resolve that tension.
 
-## Develop the argument
+## Build a clear narrative arc
 
-Start with the context readers need to understand the question. Describe the
-specific limitation, opportunity or missing understanding that motivates the
-work, using a primary source when making a claim about earlier results. Historical
-context and practical constraints may serve this motivation without becoming
-formal inputs later. Allow space for the steps that explain why the problem
-arises and why the chosen setting matters.
+1. **Anchor the problem in a concrete setting:** Open with the specific task,
+   deployment constraint, or theoretical question that drives the paper. Skip
+   sweeping truisms about the digital era; start close enough to the technical
+   area that the reader immediately recognizes the objects at play.
+2. **Pinpoint the obstacle in prior work:** Explain what the closest existing
+   schemes or analyses achieve and where they hit a barrier—whether an asymptotic
+   bottleneck, an idealized assumption, an incompatibility with a verifier
+   constraint, or a gap between heuristic practice and provable bounds. Cite
+   primary sources accurately and describe prior trade-offs fairly without
+   dismissing different models as "flawed."
+3. **Bridge from the obstacle to your core idea:** Before listing formal
+   results, give the reader a brief, intuitive glimpse of the mechanism that
+   breaks the deadlock. State *what changes* in the construction or proof and
+   *why* that change works.
+4. **Present the contributions with their exact scope:** State what the paper
+   proves, constructs, or measures, along with the assumptions and regimes required
+   (see [contributions](04_contributions.md)).
 
-Introduce the paper's contribution and the idea behind it. Explain why the result
-matters and under which conditions it holds. Contributions may be listed or
-integrated into the narrative; see [the contribution guide](04_contributions.md).
+Keep surrounding application motivation distinct from the formal cryptographic
+problem so readers know what is motivating context and what is proved in the
+paper. Avoid announcing the paper's goal two or three times in consecutive
+paragraphs; let each paragraph advance the argument one step further.
 
-Distinguish the surrounding system background from the component or question
-being studied when combining them would obscure the motivation. Anchor design
-choices in concrete operations or named prior approaches. Preserve an author's
-useful conceptual grouping and make each part specific.
-
-Let background prepare the contribution without announcing the same goal in
-several adjacent paragraphs. Keep a goal statement, contribution opening or
-roadmap only when it adds useful orientation; no heading is required or forbidden.
-
-A pipeline, objective equation, example or motivating question is useful when it
-makes this problem clearer. Include it for that purpose, using the actual
-mathematical or computational setting. A contribution need not be an optimization
-of an existing pipeline.
-
-Give enough positioning to distinguish the work even when detailed related work
-appears later. Include a separate technical overview or roadmap when it improves
-the reading path. Their length follows the explanatory need.
+Include a brief comparison with the closest prior art right in the introduction
+even when a full Related Work section appears later in the paper. Add a dedicated
+Technical Overview subsection or a short roadmap only when it genuinely helps
+readers navigate the paper's structure.
 
 ## Check
 
-Can a reader state the research question, the specific contribution and its
-relationship to the closest work? Does the introduction prepare the reader for
-the technical development without promising a result the body does not contain?
+- Can a reader state the exact research question, why straightforward solutions
+  fail, and what your paper achieves after reading the introduction alone?
+- Does every headline claim in the introduction match the assumptions, models,
+  and numbers proved or measured in the body?

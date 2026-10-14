@@ -1,42 +1,42 @@
 # Technical overview
 
-The reader should be able to explain the main idea, why the difficulty arises,
-and how the technique addresses it before reading the full technical development.
+A strong technical overview lets a cryptographer reconstruct your core idea, understand
+why the naive approach fails, and see how each technical piece fits together
+before diving into formal definitions and proofs.
 
-## Inputs
+## Build around the obstacle-to-insight progression
 
-Read the main statements and constructions, the relevant prior work, and the
-existing introduction. Use the current notation and the overview references and
-presentation choices in the project's writing plan. The overview can be part of
-the introduction or a separate section; use the manuscript's structure unless a
-change improves understanding.
+Rather than summarizing the paper section by section (*"In Section 3 we define X,
+in Section 4 we prove Y"*), organize the overview around the logical chain of
+technical problems and how you solve them:
 
-## Develop the explanation
+1. **Start from the concrete goal and the naive attempt:** State the exact relation,
+   computation, or security property you want to achieve, and show what happens
+   if one applies the standard textbook or baseline technique.
+2. **Isolate the exact technical barrier:** Point to the specific step where the
+   naive attempt breaks down—for example, noise blowing up across dependent
+   branches, a simulator unable to equivocate without trapdoor leakage, or
+   preprocessing work repeating across queries.
+3. **Introduce the key observation or mechanism:** Explain the structural insight
+   that bypasses the barrier. If your solution requires two or three interlocking
+   ideas (where solving Obstacle 1 creates a secondary Obstacle 2), walk the
+   reader through that chain step by step: *Attempt $\to$ Barrier 1 $\to$ Idea 1
+   $\to$ Residual Barrier 2 $\to$ Idea 2 $\to$ Final Construction*.
+4. **Introduce helper notation only when its job is clear:** State what question
+   a quantity answers before writing its symbol or formula. A simplified formula
+   or toy parameter regime (e.g., two parties or a single-bit message) works well
+   here as long as you state what is simplified and point to the full theorem or
+   protocol in the body (`Section 4.2`, `Theorem 3`).
 
-- Identify the difficulty that actually motivates the technical step. Explain
-  the relevant prior approach only as far as needed to understand that difficulty.
-- State the observation, mechanism or proof idea that changes what can be done.
-  Connect it to the result and explain the assumptions it needs.
-- Introduce a helper quantity or optimization when the reader can see the
-  question it answers. Explain the main mathematical task before the machinery
-  that accelerates its evaluation.
-- Order the explanation by its conceptual dependencies. Use questions, insight
-  headings, a worked example, formulas or a diagram when they clarify a step.
-  Their number and form follow the content.
-- Define the notation needed here locally. If substantial definitions are
-  required, consider a minimal background paragraph or a different placement.
-- Point to the precise statements or algorithms that develop the idea. A
-  simplified formula is acceptable when its simplification and scope are clear.
+## Keep intuition honest
 
-## Check
+- Never let informal overview prose upgrade a heuristic argument, an operation-count
+  model, or a restricted-domain lemma into an unconditional security or runtime
+  claim.
+- State the crucial assumption or invariant at the point where the mechanism
+  relies on it.
+- Use a diagram or compact side-by-side workflow comparison when visual layout
+  clarifies message flow or data dependencies faster than prose.
 
-Can a reader trace the stated obstacle through the proposed idea to a supported
-result? Are the conditions stated before they are used? Does the overview agree
-with the body without repeating the entire related-work discussion or proof?
-An intuitive explanation should not upgrade a conjecture, heuristic or partial
-result to a theorem.
-
-Deliver a complete overview following the source-edit authorization in the
-writing entrypoint. Use a figure when there is a concrete relation or process
-that it would help explain. Examples are in
-[synthetic overviews](../../examples/toy_overview_and_related.md).
+See [synthetic overviews](../../examples/toy_overview_and_related.md) for examples
+of single-insight and multi-step dependency overviews.
